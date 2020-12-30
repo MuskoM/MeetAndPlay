@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">MeetAndPlay</string>
+    <string name="login_label">Login</string>
+    <string name="login_hint">Input your login</string>
+    <string name="password_label">Password</string>
+    <string name="repeat_password_label">Repeat password</string>
+    <string name="repeat_password_hint">Input your password to confirm</string>
+    <string name="password_hint">Input your password</string>
+    <string name="login_button_label">Log In</string>
+    <string name="user_not_registered_label">You don`t have an account?</string>
+    <string name="register_button_label">Register</string>
+</resources>
