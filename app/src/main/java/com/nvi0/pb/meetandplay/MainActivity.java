@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import io.realm.Realm;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,4 +18,9 @@ public class MainActivity extends AppCompatActivity {
         Log.d("MainActivity","Intent: " + LoginCredentials.getString("Login"));
 
     }
+
+    void test(){
+
+    }
+
 }

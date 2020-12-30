@@ -11,9 +11,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import io.realm.Realm;
+import io.realm.mongodb.App;
+import io.realm.mongodb.AppConfiguration;
+
 public class LoginActivity extends AppCompatActivity {
 
+    private static final String APPID = "meetandplay-zfyuu";
     public static final String USER_LOGIN_DETAILS = "com.nvi0.pb.login.USER_LOGIN_DETAILS";
+
+    App app;
     String login_string,password_string;
     Button loginUserBtn;
     Button registerUserBtn;
@@ -24,6 +31,8 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        Realm.init(this);
+        app = new App(new AppConfiguration.Builder(APPID).build());
 
         loginUserBtn = findViewById(R.id.login_button);
         registerUserBtn = findViewById(R.id.login_view_register_button);
