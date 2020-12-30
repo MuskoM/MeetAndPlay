@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"/>
 
     <EditText
-        android:id="@+id/login_user_input"
+        android:id="@+id/register_view_login_user_input"
         android:layout_width="wrap_content"
         android:text="@string/login_hint"
         android:layout_gravity="center"
@@ -36,7 +36,7 @@
         android:layout_height="wrap_content"/>
 
     <EditText
-        android:id="@+id/password_user_input"
+        android:id="@+id/register_view_password_user_input"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/password_hint"
@@ -50,14 +50,14 @@
         android:layout_height="wrap_content"/>
 
     <EditText
-        android:id="@+id/repeat_password_user_input"
+        android:id="@+id/register_view_repeat_password_user_input"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="@string/repeat_password_hint"
         android:inputType="textPassword"/>
 
     <Button
-        android:id="@+id/login_button"
+        android:id="@+id/register_button"
         android:layout_width="match_parent"
         android:text="@string/register_button_label"
         android:layout_marginTop="20dp"
