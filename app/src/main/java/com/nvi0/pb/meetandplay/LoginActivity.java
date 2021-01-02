@@ -11,14 +11,17 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import java.io.Serializable;
+
 import io.realm.Realm;
 import io.realm.mongodb.App;
 import io.realm.mongodb.AppConfiguration;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private static final String APPID = "meetandplay-zfyuu";
+    public static final String APPID = "meetandplay-zfyuu";
     public static final String USER_LOGIN_DETAILS = "com.nvi0.pb.login.USER_LOGIN_DETAILS";
+    public static final String REALM_APP = "com.nvi0.pb.realm.app";
 
     App app;
     String login_string,password_string;
@@ -92,7 +95,8 @@ public class LoginActivity extends AppCompatActivity {
         registerUserBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+             Intent realmDataIntent = new Intent(LoginActivity.this,RegisterActivity.class);
+             startActivity(realmDataIntent);
             }
         });
 
