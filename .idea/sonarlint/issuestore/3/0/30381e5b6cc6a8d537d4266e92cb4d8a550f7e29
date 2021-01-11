@@ -1,0 +1,22 @@
+
+C
+java:S1604'"(Make this anonymous inner class a lambda(óÁÀøÿÿÿÿ
+Q	java:S110"<This class has 9 parents which is greater than 5 authorized.(Ê¨¹
+<
+java:S1659"&Declare "password" on a separate line.(û‚¼õ
+—
+java:S1186T"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(«û³±
+7
+java:S1116"Remove this empty statement.(Åñ­õşÿÿÿÿ
+s	java:S116"^Rename this field "password_user_input" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ùÕ­÷
+—
+java:S1186)"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¡é††
+—
+java:S1186C"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(«û³±
+œ
+java:S1186H"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ê¥¾àûÿÿÿÿ
+p	java:S116"[Rename this field "email_user_input" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ùÕ­÷
+œ
+java:S1186Y"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ê¥¾àûÿÿÿÿ
+G
+java:S1659"1Declare "password_user_input" on a separate line.(ùÕ­÷

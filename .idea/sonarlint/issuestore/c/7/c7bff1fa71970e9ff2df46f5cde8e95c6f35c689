@@ -1,0 +1,18 @@
+
+J
+java:S1604+"(Make this anonymous inner class a lambda(ó“ô´ùÿÿÿÿ8í‚‘ï.
+R
+java:S14819"5Remove this unused "LoginCredentials" local variable.(£øå8—¡øï.
+r	java:S1178"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¸¬£¬üÿÿÿÿ8‰éŒï.
+
+java:S1186-"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¡é††8”©êï.
+J
+java:S1604""(Make this anonymous inner class a lambda(ôËÑ´ûÿÿÿÿ8Ì”åŠï.
+Q	java:S110"<This class has 9 parents which is greater than 5 authorized.(²Ú±
+G
+java:S14813"*Remove this unused "dbRef" local variable.(Êò‹š8Úô€ï.
+a
+java:S18549"DRemove this useless assignment to local variable "LoginCredentials".(£øå8—¡øï.
+V
+java:S18543"9Remove this useless assignment to local variable "dbRef".(Êò‹š8Úô€ï.
+m	java:S1179"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(£øå8—¡øï.

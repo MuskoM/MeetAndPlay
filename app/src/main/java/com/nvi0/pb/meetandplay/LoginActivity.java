@@ -1,5 +1,6 @@
 package com.nvi0.pb.meetandplay;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -10,6 +11,13 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.io.Serializable;
 
@@ -19,11 +27,9 @@ import io.realm.mongodb.AppConfiguration;
 
 public class LoginActivity extends AppCompatActivity {
 
-    public static final String APPID = "meetandplay-zfyuu";
-    public static final String USER_LOGIN_DETAILS = "com.nvi0.pb.login.USER_LOGIN_DETAILS";
-    public static final String REALM_APP = "com.nvi0.pb.realm.app";
+    private static final String TAG = "LoginActivity" ;
+    private FirebaseAuth mAuth;
 
-    App app;
     String login_string,password_string;
     Button loginUserBtn;
     Button registerUserBtn;
@@ -31,11 +37,16 @@ public class LoginActivity extends AppCompatActivity {
     EditText userCredentialsLogin, userCredentialsPassword;
 
     @Override
+    protected void onStart() {
+        super.onStart();
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        Realm.init(this);
-        app = new App(new AppConfiguration.Builder(APPID).build());
+
+        mAuth = FirebaseAuth.getInstance();
 
         loginUserBtn = findViewById(R.id.login_button);
         registerUserBtn = findViewById(R.id.login_view_register_button);
@@ -83,10 +94,28 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent userDetailsIntent = new Intent(LoginActivity.this,MainActivity.class);
-                Bundle userCredentialsBundle = new Bundle();
-                userCredentialsBundle.putString("Login",login_string);
-                userCredentialsBundle.putString("Password",password_string);
-                userDetailsIntent.putExtra(USER_LOGIN_DETAILS,userCredentialsBundle);
+
+                mAuth.signInWithEmailAndPassword(login_string, password_string)
+                        .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                if (task.isSuccessful()) {
+                                    // Sign in success, update UI with the signed-in user's information
+                                    Log.d(TAG, "signInWithEmail:success");
+                                    FirebaseUser user = mAuth.getCurrentUser();
+                                    updateUI(user);
+                                } else {
+                                    // If sign in fails, display a message to the user.
+                                    Log.w(TAG, "signInWithEmail:failure", task.getException());
+                                    Toast.makeText(LoginActivity.this, "Authentication failed.",
+                                            Toast.LENGTH_SHORT).show();
+                                    updateUI(null);
+                                }
+
+                                // ...
+                            }
+                        });
+
                 startActivity(userDetailsIntent);
 
             }
@@ -100,6 +129,12 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void  updateUI(FirebaseUser user){
+
+        Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+        startActivity(intent);
     }
 
 
