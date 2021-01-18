@@ -4,7 +4,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.Preference;
+import android.preference.PreferenceManager;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -28,6 +31,8 @@ import io.realm.mongodb.AppConfiguration;
 public class LoginActivity extends AppCompatActivity {
 
     private static final String TAG = "LoginActivity" ;
+    public static final String LOGIN_PREFERENCE = "UserLoginPreference";
+    SharedPreferences mPrefs;
     private FirebaseAuth mAuth;
 
     String login_string,password_string;
@@ -44,9 +49,25 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mPrefs = getSharedPreferences(LOGIN_PREFERENCE, MODE_PRIVATE);
+
+//        if(mPrefs.getBoolean(LOGIN_PREFERENCE,)){
+//            Log.d("isLOGGED_IN", String.valueOf(mPrefs.getBoolean(LoginActivity.LOGIN_PREFERENCE,false)));
+//            updateUI();
+//        }
+        if (savedInstanceState !=null){
+            Intent intent = new Intent(this,MainActivity.class);
+            Log.d("SAVED_STATE",savedInstanceState.toString());
+            startActivity(intent);
+        }
+
         setContentView(R.layout.activity_login);
 
         mAuth = FirebaseAuth.getInstance();
+
+        if(mAuth.getCurrentUser() != null){
+            updateUI();
+        }
 
         loginUserBtn = findViewById(R.id.login_button);
         registerUserBtn = findViewById(R.id.login_view_register_button);
@@ -103,20 +124,21 @@ public class LoginActivity extends AppCompatActivity {
                                     // Sign in success, update UI with the signed-in user's information
                                     Log.d(TAG, "signInWithEmail:success");
                                     FirebaseUser user = mAuth.getCurrentUser();
-                                    updateUI(user);
+                                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(LoginActivity.this);
+
+//                                    prefs.edit().putBoolean(LOGIN_PREFERENCE,true).apply();
+                                    updateUI();
                                 } else {
                                     // If sign in fails, display a message to the user.
                                     Log.w(TAG, "signInWithEmail:failure", task.getException());
                                     Toast.makeText(LoginActivity.this, "Authentication failed.",
                                             Toast.LENGTH_SHORT).show();
-                                    updateUI(null);
+                                    updateUI();
                                 }
 
                                 // ...
                             }
                         });
-
-                startActivity(userDetailsIntent);
 
             }
         });
@@ -131,7 +153,7 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    private void  updateUI(FirebaseUser user){
+    private void  updateUI(){
 
         Intent intent = new Intent(LoginActivity.this,MainActivity.class);
         startActivity(intent);
