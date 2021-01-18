@@ -21,6 +21,9 @@ import com.google.firebase.database.ValueEventListener;
 import com.nvi0.pb.meetandplay.Fragments.GamesListFragment;
 import com.nvi0.pb.meetandplay.Fragments.UserProfileFragment;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
     TextView txt_view;
     SharedPreferences mPrefs;
     DatabaseReference messagesDbReference = FirebaseDatabase.getInstance().getReference("message");
-
+    ExecutorService executorService = Executors.newFixedThreadPool(4);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
