@@ -7,12 +7,16 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -20,6 +24,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.nvi0.pb.meetandplay.Fragments.GamesListFragment;
+import com.nvi0.pb.meetandplay.Fragments.MessengerFragment;
 import com.nvi0.pb.meetandplay.Fragments.UserProfileFragment;
 
 
@@ -27,14 +32,11 @@ public class MainActivity extends AppCompatActivity {
 
     FirebaseAuth myAuth;
     SharedPreferences mPrefs;
-    DatabaseReference messagesDbReference = FirebaseDatabase.getInstance().getReference("message");
     RequestQueue requestQueue;
 
-    Button logout_btn;
-    Button insert_btn;
-    Button userProfileBtn;
-    Button gameListBtn;
-    TextView txt_view;
+    BottomNavigationView navigationView;
+
+
 
 
     @Override
@@ -61,67 +63,53 @@ public class MainActivity extends AppCompatActivity {
 
 
         //Layout btns
-        logout_btn = findViewById(R.id.logout_btn);
-        insert_btn = findViewById(R.id.insert_to_db);
-        txt_view = findViewById(R.id.text_text);
-        userProfileBtn = findViewById(R.id.user_profile_btn);
-        gameListBtn = findViewById(R.id.list_btn);
+        navigationView = findViewById(R.id.bottomNavigationView);
 
-        messagesDbReference.addValueEventListener(new ValueEventListener() {
+
+
+        navigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
 
-                String message = snapshot.getValue(String.class);
-                txt_view.setText(message);
+                    case R.id.list_navigation_button:
+                        getSupportFragmentManager().beginTransaction()
+                                .setReorderingAllowed(true)
+                                .setCustomAnimations(R.anim.fragment_fade_enter,R.anim.fragment_fade_exit)
+                                .replace(R.id.fragment_container_view, GamesListFragment.class,userDataBundle)
+                                .commit();
+                        break;
 
-            }
+                    case R.id.profile_navigation_button:
+                        getSupportFragmentManager().beginTransaction()
+                                .setReorderingAllowed(true)
+                                .setCustomAnimations(R.anim.fragment_fade_enter, R.anim.fragment_fade_exit)
+                                .replace(R.id.fragment_container_view, UserProfileFragment.class, userDataBundle)
+                                .commit();
+                        break;
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
+                    case R.id.messages_navigation_button:
+                        getSupportFragmentManager().beginTransaction()
+                                .setReorderingAllowed(true)
+                                .setCustomAnimations(R.anim.fragment_fade_enter,R.anim.fragment_fade_exit)
+                                .replace(R.id.fragment_container_view, MessengerFragment.class, userDataBundle)
+                                .commit();
+                        break;
 
+                    case R.id.logout_navigation_button:
+                        myAuth.signOut();
+                        Intent intent = new Intent(MainActivity.this,LoginActivity.class);
+                        startActivity(intent);
+                        break;
 
+                }
 
-            }
-        });
-
-        insert_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                messagesDbReference.setValue("Sample child");
-            }
-        });
-
-        logout_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                myAuth.signOut();
-//                mPrefs.edit().putBoolean(LoginActivity.LOGIN_PREFERENCE,false).apply();
-                Intent intent = new Intent(MainActivity.this,LoginActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        userProfileBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getSupportFragmentManager().beginTransaction()
-                        .setReorderingAllowed(true)
-                        .setCustomAnimations(R.anim.fragment_fade_enter,R.anim.fragment_fade_exit)
-                        .replace(R.id.fragment_container_view, UserProfileFragment.class,userDataBundle)
-                        .commit();
+                return true;
             }
         });
 
-        gameListBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getSupportFragmentManager().beginTransaction()
-                        .setReorderingAllowed(true)
-                        .setCustomAnimations(R.anim.fragment_fade_enter,R.anim.fragment_fade_exit)
-                        .replace(R.id.fragment_container_view, GamesListFragment.class,userDataBundle)
-                        .commit();
-            }
-        });
+
+
 
     }
 

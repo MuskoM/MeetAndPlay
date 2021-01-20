@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-<item android:title="@string/bottom_menu_Profile_label"
-    android:icon="@drawable/ic_baseline_person"/>
-<item android:title="@string/bottom_menu_list_label"
-    android:icon="@drawable/ic_baseline_format_list"/>
-<item android:title="@string/bottom_menu_messagging_label"
-    android:icon="@drawable/ic_baseline_message"/>
+    <item
+        android:id="@+id/profile_navigation_button"
+        android:icon="@drawable/ic_baseline_person"
+        android:title="@string/bottom_menu_Profile_label" />
+    <item
+        android:id="@+id/list_navigation_button"
+        android:icon="@drawable/ic_baseline_format_list"
+        android:title="@string/bottom_menu_list_label" />
+    <item
+        android:id="@+id/messages_navigation_button"
+        android:icon="@drawable/ic_baseline_message"
+        android:title="@string/bottom_menu_messagging_label" />
+    <item
+        android:id="@+id/logout_navigation_button"
+        android:icon="@drawable/ic_baseline_exit"
+        android:title="@string/bottom_menu_logout_label" />
 </menu>
