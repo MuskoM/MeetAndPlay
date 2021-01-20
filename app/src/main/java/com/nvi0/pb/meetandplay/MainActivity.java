@@ -6,12 +6,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.Volley;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -21,21 +22,20 @@ import com.google.firebase.database.ValueEventListener;
 import com.nvi0.pb.meetandplay.Fragments.GamesListFragment;
 import com.nvi0.pb.meetandplay.Fragments.UserProfileFragment;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-
 
 public class MainActivity extends AppCompatActivity {
 
     FirebaseAuth myAuth;
+    SharedPreferences mPrefs;
+    DatabaseReference messagesDbReference = FirebaseDatabase.getInstance().getReference("message");
+    RequestQueue requestQueue;
+
     Button logout_btn;
     Button insert_btn;
     Button userProfileBtn;
     Button gameListBtn;
     TextView txt_view;
-    SharedPreferences mPrefs;
-    DatabaseReference messagesDbReference = FirebaseDatabase.getInstance().getReference("message");
-    ExecutorService executorService = Executors.newFixedThreadPool(4);
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +54,13 @@ public class MainActivity extends AppCompatActivity {
         }
 
         setContentView(R.layout.activity_main);
+
+        //Utils
         myAuth = FirebaseAuth.getInstance();
+        requestQueue = Volley.newRequestQueue(this);
+
+
+        //Layout btns
         logout_btn = findViewById(R.id.logout_btn);
         insert_btn = findViewById(R.id.insert_to_db);
         txt_view = findViewById(R.id.text_text);
@@ -112,13 +118,11 @@ public class MainActivity extends AppCompatActivity {
                 getSupportFragmentManager().beginTransaction()
                         .setReorderingAllowed(true)
                         .setCustomAnimations(R.anim.fragment_fade_enter,R.anim.fragment_fade_exit)
-                        .replace(R.id.fragment_container_view, GamesListFragment.class, null)
+                        .replace(R.id.fragment_container_view, GamesListFragment.class,userDataBundle)
                         .commit();
             }
         });
 
-
     }
-
 
 }

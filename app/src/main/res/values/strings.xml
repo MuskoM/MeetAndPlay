@@ -11,4 +11,7 @@
     <string name="register_button_label">Register</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="bottom_menu_Profile_label">Profile</string>
+    <string name="bottom_menu_list_label">List</string>
+    <string name="bottom_menu_messagging_label">Messages</string>
 </resources>

@@ -37,6 +37,7 @@ realm {
 
 dependencies {
     implementation 'com.github.bumptech.glide:glide:4.11.0'
+    implementation 'com.android.volley:volley:1.1.1'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.11.0'
     implementation "androidx.fragment:fragment:1.2.5"
     implementation 'org.mongodb:mongodb-driver-sync:4.1.1'

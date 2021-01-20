@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<item android:title="@string/bottom_menu_Profile_label"
+    android:icon="@drawable/ic_baseline_person"/>
+<item android:title="@string/bottom_menu_list_label"
+    android:icon="@drawable/ic_baseline_format_list"/>
+<item android:title="@string/bottom_menu_messagging_label"
+    android:icon="@drawable/ic_baseline_message"/>
+</menu>

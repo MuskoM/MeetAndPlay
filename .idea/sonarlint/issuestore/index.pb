@@ -13,8 +13,6 @@ P
  app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
 o
 ?app/src/main/java/com/nvi0/pb/meetandplay/RegisterActivity.java,3\0\30381e5b6cc6a8d537d4266e92cb4d8a550f7e29
-k
-;app/src/main/java/com/nvi0/pb/meetandplay/data/Message.java,4\8\48179d3dbf6f370a207d1055d1088e860ec82371
 <
 build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
 @
@@ -27,3 +25,13 @@ H
 app/google-services.json,f\d\fd8d34b142d02ec743a8efefefd2c097961666e9
 k
 ;app/src/main/java/com/nvi0/pb/meetandplay/MainActivity.java,c\7\c7bff1fa71970e9ff2df46f5cde8e95c6f35c689
+z
+Japp/src/main/java/com/nvi0/pb/meetandplay/Fragments/GamesListFragment.java,f\b\fb2762a8be3726ca35f117e8318af74d91183b11
+k
+;app/src/main/java/com/nvi0/pb/meetandplay/Utils/Glider.java,e\0\e06c2e588491dd3afe75e00148404b427869ef45
+|
+Lapp/src/main/java/com/nvi0/pb/meetandplay/Fragments/UserProfileFragment.java,e\1\e1b26bb91b0328d88df16c12942446a7438c3f7e
+{
+Kapp/src/main/java/com/nvi0/pb/meetandplay/Utils/RequestsQueueSingleton.java,6\9\69c7344caf53318c683d296ba4a92bde6d730c7d
+t
+Dapp/src/main/java/com/nvi0/pb/meetandplay/Utils/BoardGamesAtlas.java,a\1\a1f372b0adf7447a4cb2b28c3d3fa9d99eb8f91c
