@@ -28,18 +28,17 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
-import com.nvi0.pb.meetandplay.Database.Database;
-import com.nvi0.pb.meetandplay.Fragments.GamesListFragment;
 import com.nvi0.pb.meetandplay.R;
 import com.nvi0.pb.meetandplay.Utils.GlideApp;
 
 
-public class UserProfileFragment extends Fragment {
+public class UserProfileFragment extends Fragment implements ValueEventListener {
 
     //Firebase
-    private StorageReference mStorageRef;
-    private DatabaseReference userReference;
-    private FirebaseUser userAuth;
+    private FirebaseUser userAuth = FirebaseAuth.getInstance().getCurrentUser();
+    private DatabaseReference userReference = FirebaseDatabase.getInstance().getReference("users").child(userAuth.getUid());
+    private StorageReference storageAvatarReference = FirebaseStorage.getInstance()
+            .getReference("users").child(userAuth.getUid()).child("avatar.jpg");
 
     ImageView avatar;
     TextView userNameTextView;
@@ -57,9 +56,6 @@ public class UserProfileFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        userAuth = FirebaseAuth.getInstance().getCurrentUser();
-        userReference = FirebaseDatabase.getInstance().getReference("users").child(userAuth.getUid());
-
         //Elements
         editUserProfileBtn = view.findViewById(R.id.profile_edit_button);
         userNameTextView = view.findViewById(R.id.profile_username);
@@ -69,50 +65,10 @@ public class UserProfileFragment extends Fragment {
         userPhoneTextView = view.findViewById(R.id.profile_details_phone_number);
         userDescriptionTextView = view.findViewById(R.id.profile_description);
 
-        mStorageRef = FirebaseStorage.getInstance().getReferenceFromUrl("gs://meetandplay-ddac1.appspot.com/users/test_user/images.jpg");
-        GlideApp.with(this).load(mStorageRef).error(R.drawable.ic_launcher_background).listener(new RequestListener<Drawable>() {
-            @Override
-            public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
-                Log.e("GLIDE ERROR","Error", e);
-                return false;
-            }
-
-            @Override
-            public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
-                Log.e("GLIDE ERROR","Ready");
-                return false;
-            }
-        }).into(avatar);
-
-        //Database references
-        DatabaseReference userEmailReference = userReference.child("mail");
-        DatabaseReference userNameReference = userReference.child("profileName");
-
-        //Listeners for changes in database
-        userEmailReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                userMailTextView.setText(snapshot.getValue(String.class));
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
+        refreshAvatar();
 
 
-        userNameReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                userNameTextView.setText(snapshot.getValue(String.class));
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
+        userReference.addValueEventListener(this);
 
 
         editUserProfileBtn.setOnClickListener(new View.OnClickListener() {
@@ -128,6 +84,28 @@ public class UserProfileFragment extends Fragment {
 
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        refreshAvatar();
+    }
+
+    private void refreshAvatar() {
+        GlideApp.with(this).load(storageAvatarReference).error(R.drawable.ic_launcher_background).listener(new RequestListener<Drawable>() {
+            @Override
+            public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
+                Log.e("GLIDE ERROR","Error", e);
+                return false;
+            }
+
+            @Override
+            public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
+                Log.e("GLIDE ERROR","Ready");
+                return false;
+            }
+        }).into(avatar);
+    }
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -135,10 +113,48 @@ public class UserProfileFragment extends Fragment {
 
     }
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_user_profile, container, false);
     }
+
+    //Firebase ValueEventListener interface
+    @Override
+    public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+        for (DataSnapshot data : snapshot.getChildren()
+        ) {
+            switch (data.getKey()) {
+
+                case "profileName":
+                    userNameTextView.setText(data.getValue(String.class));
+                    break;
+                case "mail":
+                    userMailTextView.setText(data.getValue(String.class));
+                    break;
+                case "description":
+                    userDescriptionTextView.setText(data.getValue(String.class));
+                    break;
+                case "phone":
+                    userPhoneTextView.setText(data.getValue(String.class));
+                    break;
+                case "address":
+                    userAddressTextView.setText(data.getValue(String.class));
+                    break;
+
+            }
+        }
+
+    }
+
+
+
+    @Override
+    public void onCancelled(@NonNull DatabaseError error) {
+
+    }
+
 }
