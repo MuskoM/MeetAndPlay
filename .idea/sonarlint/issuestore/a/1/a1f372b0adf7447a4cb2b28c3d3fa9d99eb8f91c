@@ -1,25 +1,17 @@
 
-X	java:S125 "<This block of commented-out lines of code should be removed.(ıìñ8¡’¨ÿñ.
-N
-java:S16029",Remove useless curly braces around statement(°‚˜§üÿÿÿÿ8Ö¢ÿñ.
 g
-java:S1124"EReorder the modifiers to comply with the Java Language Specification.(²øË™ıÿÿÿÿ8¦‘íşñ.
-X
-java:S1128";Remove this unused import 'java.net.MalformedURLException'.(ªËŞˆ8Ãÿôÿñ.
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(Ù­Â©ûÿÿÿÿ8¦‘íşñ.
+X	java:S125"<This block of commented-out lines of code should be removed.(ıìñ8¡’¨ÿñ.
+b
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(ç¸ÒÙ8¦‘íşñ.
 t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(õúÎÀøÿÿÿÿ
-g
-java:S1124"EReorder the modifiers to comply with the Java Language Specification.(Ù­Â©ûÿÿÿÿ8¦‘íşñ.
-b
-java:S1124"EReorder the modifiers to comply with the Java Language Specification.(ç¸ÒÙ8¦‘íşñ.
 E
-java:S1604/"(Make this anonymous inner class a lambda(ÑÂğ8âúÿñ.
-S
-java:S1128"1Remove this unused import 'android.widget.Toast'.(©›ïÍúÿÿÿÿ8ºïÿñ.
-F
-java:S1128")Remove this unused import 'java.net.URI'.(Ö¦¨°8ºïÿñ.
-b
-java:S1124"EReorder the modifiers to comply with the Java Language Specification.(åÃßÅ8¦‘íşñ.
-b
-java:S1124"EReorder the modifiers to comply with the Java Language Specification.(Ö¿„¹8¦‘íşñ.
+java:S1604-"(Make this anonymous inner class a lambda(ÑÂğ8âúÿñ.
 a
-java:S1124"EReorder the modifiers to comply with the Java Language Specification.(Ä’“B8¦‘íşñ.
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(Ä’“B8¦‘íşñ.
+b
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(Ö¿„¹8¦‘íşñ.
+g
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(²øË™ıÿÿÿÿ8¦‘íşñ.
+b
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(åÃßÅ8¦‘íşñ.

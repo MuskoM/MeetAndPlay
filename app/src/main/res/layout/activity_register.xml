@@ -24,7 +24,7 @@
     <EditText
         android:id="@+id/register_view_login_user_input"
         android:layout_width="wrap_content"
-        android:text="@string/login_hint"
+        android:hint="@string/login_hint"
         android:layout_gravity="center"
         android:layout_height="wrap_content"/>
 
@@ -39,7 +39,7 @@
         android:id="@+id/register_view_password_user_input"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/password_hint"
+        android:hint="@string/password_hint"
         android:inputType="textPassword"/>
 
     <TextView

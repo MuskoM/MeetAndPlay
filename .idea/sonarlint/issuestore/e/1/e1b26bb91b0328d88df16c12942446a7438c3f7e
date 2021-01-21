@@ -1,12 +1,12 @@
 
 t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(À’Ââùÿÿÿÿ
+R
+java:S1128"5Remove this unused import 'com.bumptech.glide.Glide'.(Ñˆ…Ë8¿¾²³ñ.
+E
+java:S1185?"(Remove this method to simply inherit it.(ßìê¯8÷–î²ñ.
+
+java:S1186""€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(áF8÷–î²ñ.
 |
 java:S1450"ZRemove the "mStorageRef" field and declare it as a local variable in the relevant methods.(ªËö®şÿÿÿÿ8÷–î²ñ.
 c
 java:S1128"ARemove this unused import 'com.nvi0.pb.meetandplay.Utils.Glider'.(¿”ÀÅùÿÿÿÿ8¢î°³ñ.
-R
-java:S1128"5Remove this unused import 'com.bumptech.glide.Glide'.(Ñˆ…Ë8¿¾²³ñ.
-
-java:S1186""€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(áF8÷–î²ñ.
-E
-java:S1185?"(Remove this method to simply inherit it.(ßìê¯8÷–î²ñ.

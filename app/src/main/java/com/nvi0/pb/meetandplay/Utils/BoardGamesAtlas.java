@@ -12,8 +12,12 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class BoardGamesAtlas {
 
+    private static final String TAG = "BoardGamesAtlas";
     final static String BOARD_GAME_ATLAS_BASE_URL = "https://api.boardgameatlas.com/api/search";
     final static String PARAM_NAME = "https://api.boardgameatlas.com/api/search";
     final static String PARAM_CLIENT_ID = "client_id";
@@ -39,14 +43,16 @@ public class BoardGamesAtlas {
 
     public JSONArray getBoardGamesWithImage(String name, VolleyResponseListener volleyResponseListener){
 
-        String url = URL + "name="+name+"&client_id=8bhyRCOg0t&order_by=name&fields=name";
+        String url = URL + "name="+name+"&client_id=8bhyRCOg0t&order_by=name&fields=name,image_url";
 
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
                         try {
+                            Log.d(TAG, "onResponse Triggered");
                             games = response.getJSONArray("games");
+                            Log.d(TAG, games.toString());
                             volleyResponseListener.onResponse(games);
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -54,7 +60,7 @@ public class BoardGamesAtlas {
                     }
     },
                 error -> {
-                    Log.d("APIrequest", error.toString());
+                    Log.d(TAG, error.toString());
                     volleyResponseListener.onError("SOMETHING_WRONG");
                 }
         );
@@ -63,5 +69,7 @@ public class BoardGamesAtlas {
 
         return games;
     }
+
+
 
 }

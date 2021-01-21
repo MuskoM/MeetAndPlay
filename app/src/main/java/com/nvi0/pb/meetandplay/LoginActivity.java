@@ -51,16 +51,6 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         mPrefs = getSharedPreferences(LOGIN_PREFERENCE, MODE_PRIVATE);
 
-//        if(mPrefs.getBoolean(LOGIN_PREFERENCE,)){
-//            Log.d("isLOGGED_IN", String.valueOf(mPrefs.getBoolean(LoginActivity.LOGIN_PREFERENCE,false)));
-//            updateUI();
-//        }
-        if (savedInstanceState !=null){
-            Intent intent = new Intent(this,MainActivity.class);
-            Log.d("SAVED_STATE",savedInstanceState.toString());
-            startActivity(intent);
-        }
-
         setContentView(R.layout.activity_login);
 
         mAuth = FirebaseAuth.getInstance();
@@ -114,7 +104,6 @@ public class LoginActivity extends AppCompatActivity {
         loginUserBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent userDetailsIntent = new Intent(LoginActivity.this,MainActivity.class);
 
                 mAuth.signInWithEmailAndPassword(login_string, password_string)
                         .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
@@ -125,7 +114,6 @@ public class LoginActivity extends AppCompatActivity {
                                     Log.d(TAG, "signInWithEmail:success");
                                     FirebaseUser user = mAuth.getCurrentUser();
                                     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(LoginActivity.this);
-
 //                                    prefs.edit().putBoolean(LOGIN_PREFERENCE,true).apply();
                                     updateUI();
                                 } else {
@@ -133,10 +121,8 @@ public class LoginActivity extends AppCompatActivity {
                                     Log.w(TAG, "signInWithEmail:failure", task.getException());
                                     Toast.makeText(LoginActivity.this, "Authentication failed.",
                                             Toast.LENGTH_SHORT).show();
-                                    updateUI();
                                 }
 
-                                // ...
                             }
                         });
 

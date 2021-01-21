@@ -35,3 +35,5 @@ Lapp/src/main/java/com/nvi0/pb/meetandplay/Fragments/UserProfileFragment.java,e
 Kapp/src/main/java/com/nvi0/pb/meetandplay/Utils/RequestsQueueSingleton.java,6\9\69c7344caf53318c683d296ba4a92bde6d730c7d
 t
 Dapp/src/main/java/com/nvi0/pb/meetandplay/Utils/BoardGamesAtlas.java,a\1\a1f372b0adf7447a4cb2b28c3d3fa9d99eb8f91c
+z
+Japp/src/main/java/com/nvi0/pb/meetandplay/Fragments/MessengerFragment.java,e\7\e79f6bf3c3a53ef5c6cf15678bb8f2bd42b8d1ad

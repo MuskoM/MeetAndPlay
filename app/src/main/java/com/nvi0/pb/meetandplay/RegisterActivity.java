@@ -18,11 +18,17 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.nvi0.pb.meetandplay.DataModels.UserDataModel;
 
 public class RegisterActivity extends AppCompatActivity {
 
 
     private static final String TAG = "RegisterActivity";
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference databaseReference = database.getReference("users");
+
     String email,password;
     EditText email_user_input,password_user_input;
 
@@ -49,6 +55,10 @@ public class RegisterActivity extends AppCompatActivity {
                                     // Sign in success, update UI with the signed-in user's information
                                     Log.d(TAG, "createUserWithEmail:success");
                                     FirebaseUser user = mAuth.getCurrentUser();
+                                    UserDataModel userDataModel = new UserDataModel(user.getUid(),user.getEmail());
+                                    userDataModel.createProfileNameFromEmail(user.getEmail());
+                                    databaseReference.child(user.getUid()).child("mail").setValue(email);
+                                    databaseReference.child(user.getUid()).child("profileName").setValue(userDataModel.getProfileName());
                                     updateUI(user);
                                 } else {
                                     // If sign in fails, display a message to the user.
