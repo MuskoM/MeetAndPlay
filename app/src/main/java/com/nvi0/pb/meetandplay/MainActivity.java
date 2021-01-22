@@ -7,17 +7,14 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.nvi0.pb.meetandplay.Fragments.GamesListFragment;
-import com.nvi0.pb.meetandplay.Fragments.MessengerFragment;
+import com.nvi0.pb.meetandplay.Fragments.messsenger.MessengerFragment;
 import com.nvi0.pb.meetandplay.Fragments.UserProfile.UserProfileFragment;
 
 
