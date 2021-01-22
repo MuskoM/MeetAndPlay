@@ -57,24 +57,31 @@ public class MessengerFragment extends Fragment {
         viewPager.setAdapter(messengerFragmentAdapter);
 
         messengerTabLayout = view.findViewById(R.id.messenger_pager_tab_layout);
-        new TabLayoutMediator(messengerTabLayout,viewPager,
-                (tab, position) -> tab.setText("OBJECT" + (position +1))).attach();
+        new TabLayoutMediator(messengerTabLayout, viewPager,
+                (tab, position) -> {
+                if (position == 0)
+                    tab.setText("Friends");
+                else
+                    tab.setText("Chats");
+                }).attach();
 
     }
 
-    public class MessengerFragmentAdapter extends FragmentStateAdapter{
+    public class MessengerFragmentAdapter extends FragmentStateAdapter {
 
-        public MessengerFragmentAdapter(Fragment fragment){
+        public MessengerFragmentAdapter(Fragment fragment) {
             super(fragment);
         }
 
         @NonNull
         @Override
         public Fragment createFragment(int position) {
-            Fragment fragment = new MessengerFriendsFragment();
-            Bundle args = new Bundle();
-            args.putInt(MessengerFriendsFragment.ARG_OBJECT,position+1);
-            fragment.setArguments(args);
+            Fragment fragment = null;
+            if (position == 0)
+                fragment = new MessengerFriendsFragment();
+            else
+                fragment = new MessengerConvosFragment();
+
             return fragment;
         }
 
@@ -84,7 +91,6 @@ public class MessengerFragment extends Fragment {
         }
 
 
-
     }
 
     @Override
@@ -92,7 +98,6 @@ public class MessengerFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
     }
-
 
 
 }

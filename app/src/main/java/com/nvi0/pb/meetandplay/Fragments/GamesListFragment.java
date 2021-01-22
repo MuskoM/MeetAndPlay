@@ -55,7 +55,6 @@ public class GamesListFragment extends Fragment {
 
     private static final String TAG = "GamesListFragment";
 
-    JSONArray gamesJSONArray;
     List<GameDataModel> gameDataModelList = new ArrayList<>();
     BoardGamesAtlas boardGamesAtlas;
     RecyclerView gamesListRecyclerView;
@@ -139,14 +138,14 @@ public class GamesListFragment extends Fragment {
         public void onBindViewHolder(@NonNull GameListViewHolder holder, int position) {
             Log.d(TAG, "Binding View");
 
-//            gameListElementView.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//
-//                    Intent webBrowserIntent = new Intent(Intent.ACTION_VIEW,Uri.parse(gameDataModelList.get(position).getUrl()));
-//                    startActivity(webBrowserIntent);
-//                }
-//            });
+            gameListElementView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    Intent webBrowserIntent = new Intent(Intent.ACTION_VIEW,Uri.parse(gameDataModelList.get(position).getUrl()));
+                    startActivity(webBrowserIntent);
+                }
+            });
 
             holder.gameName.setText(gameDataModelList.get(position).getName());
                 GlideApp.with(mContext)
@@ -178,7 +177,7 @@ public class GamesListFragment extends Fragment {
 
             public GameListViewHolder(@NonNull View itemView) {
                 super(itemView);
-//                gameListElementView = itemView.findViewById(R.id.game_list_element);
+                gameListElementView = itemView.findViewById(R.id.game_list_element);
                 gameIcon = itemView.findViewById(R.id.game_list_item_icon);
                 gameName = itemView.findViewById(R.id.game_list_item_label);
             }
