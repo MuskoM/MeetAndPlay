@@ -7,7 +7,10 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
@@ -68,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
                                 .setCustomAnimations(R.anim.fragment_fade_enter,R.anim.fragment_fade_exit)
                                 .replace(R.id.fragment_container_view, GamesListFragment.class,userDataBundle)
                                 .commit();
+
                         break;
 
                     case R.id.profile_navigation_button:
@@ -98,9 +102,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
-
-
     }
+
 
 }

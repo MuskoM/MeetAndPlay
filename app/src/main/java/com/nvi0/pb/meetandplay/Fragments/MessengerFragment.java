@@ -6,6 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,14 +19,19 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.nvi0.pb.meetandplay.R;
+import com.nvi0.pb.meetandplay.Utils.BoardGamesAtlas;
+
+import org.json.JSONArray;
 
 
 public class MessengerFragment extends Fragment {
 
+    private static final String TAG = "MessengerFragment";
     DatabaseReference messagesDbReference = FirebaseDatabase.getInstance().getReference("message");
 
     TextView txt_view;
     Button insert_btn;
+    BoardGamesAtlas boardGamesAtlas;
 
     public MessengerFragment() {
         // Required empty public constructor

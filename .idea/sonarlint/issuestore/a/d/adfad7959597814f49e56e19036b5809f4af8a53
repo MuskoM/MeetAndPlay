@@ -1,0 +1,15 @@
+
+K
+java:S1068
+".Remove this unused "playedGame" private field.(¶Í‘§8àƒú±ò.
+L
+java:S1068"*Remove this unused "winner" private field.(ĞôâÓùÿÿÿÿ8¦Øú±ò.
+H
+java:S1068"+Remove this unused "players" private field.(ë‚ñ8àƒú±ò.
+J
+java:S1068"(Remove this unused "host" private field.(ªíûêÿÿÿÿÿ8˜Ìû±ò.
+Q
+java:S1068"/Remove this unused "sessionDate" private field.(ôÇ¼üÿÿÿÿ8àƒú±ò.
+O
+java:S1068	"-Remove this unused "sessionId" private field.(Şİª…øÿÿÿÿ8àƒú±ò.
+n	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¦Ì•

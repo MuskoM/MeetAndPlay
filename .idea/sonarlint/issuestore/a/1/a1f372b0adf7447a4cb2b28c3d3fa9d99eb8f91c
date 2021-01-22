@@ -1,17 +1,19 @@
 
+X	java:S125"<This block of commented-out lines of code should be removed.(ıìñ8¡’¨ÿñ.
 g
-java:S1124"EReorder the modifiers to comply with the Java Language Specification.(Ù­Â©ûÿÿÿÿ8¦‘íşñ.
-X	java:S125"<This block of commented-out lines of code should be removed.(ıìñ8¡’¨ÿñ.
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(Ù­Â©ûÿÿÿÿ8¦‘íşñ.
 b
-java:S1124"EReorder the modifiers to comply with the Java Language Specification.(ç¸ÒÙ8¦‘íşñ.
-t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(õúÎÀøÿÿÿÿ
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(Ö¿„¹8¦‘íşñ.
 E
-java:S1604-"(Make this anonymous inner class a lambda(ÑÂğ8âúÿñ.
-a
-java:S1124"EReorder the modifiers to comply with the Java Language Specification.(Ä’“B8¦‘íşñ.
+java:S16041"(Make this anonymous inner class a lambda(ÑÂğ8âúÿñ.
 b
-java:S1124"EReorder the modifiers to comply with the Java Language Specification.(Ö¿„¹8¦‘íşñ.
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(åÃßÅ8¦‘íşñ.
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(õúÎÀøÿÿÿÿ
 g
-java:S1124"EReorder the modifiers to comply with the Java Language Specification.(²øË™ıÿÿÿÿ8¦‘íşñ.
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(²øË™ıÿÿÿÿ8¦‘íşñ.
 b
-java:S1124"EReorder the modifiers to comply with the Java Language Specification.(åÃßÅ8¦‘íşñ.
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(ç¸ÒÙ8¦‘íşñ.
+M
+java:S1128"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8ÀÀÊ§ò.
+a
+java:S1124"EReorder the modifiers to comply with the Java Language Specification.(Ä’“B8¦‘íşñ.

@@ -6,6 +6,7 @@ import android.util.Log;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 
 import org.json.JSONArray;
@@ -15,14 +16,11 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import lombok.SneakyThrows;
+
 public class BoardGamesAtlas {
 
     private static final String TAG = "BoardGamesAtlas";
-    final static String BOARD_GAME_ATLAS_BASE_URL = "https://api.boardgameatlas.com/api/search";
-    final static String PARAM_NAME = "https://api.boardgameatlas.com/api/search";
-    final static String PARAM_CLIENT_ID = "client_id";
-    final static String PARAM_FIELDS = "fields";
-    final static String PARAM_ORDER_BY = "order_by";
     final static String URL = "https://api.boardgameatlas.com/api/search?";
 
     Uri buildUri;
@@ -38,12 +36,12 @@ public class BoardGamesAtlas {
 
     public interface VolleyResponseListener{
         void onError(String message);
-        void onResponse(JSONArray games);
+        void onResponse(JSONArray games) throws JSONException;
     }
 
     public JSONArray getBoardGamesWithImage(String name, VolleyResponseListener volleyResponseListener){
 
-        String url = URL + "name="+name+"&client_id=8bhyRCOg0t&order_by=name&fields=name,image_url";
+        String url = URL + "name="+name+"&client_id=8bhyRCOg0t&fields=name,image_url,url,&limit=10";
 
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>() {
@@ -69,7 +67,6 @@ public class BoardGamesAtlas {
 
         return games;
     }
-
 
 
 }
