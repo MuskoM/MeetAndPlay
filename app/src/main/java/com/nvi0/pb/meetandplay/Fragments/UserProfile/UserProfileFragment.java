@@ -6,6 +6,8 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -19,6 +21,7 @@ import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -28,8 +31,13 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.nvi0.pb.meetandplay.DataModels.GameDataModel;
+import com.nvi0.pb.meetandplay.Fragments.game_list.FavouriteGamesFragment;
 import com.nvi0.pb.meetandplay.R;
+import com.nvi0.pb.meetandplay.Utils.GamesMenager;
 import com.nvi0.pb.meetandplay.Utils.GlideApp;
+
+import java.util.List;
 
 
 public class UserProfileFragment extends Fragment implements ValueEventListener {
@@ -40,6 +48,7 @@ public class UserProfileFragment extends Fragment implements ValueEventListener 
     private StorageReference storageAvatarReference = FirebaseStorage.getInstance()
             .getReference("users").child(userAuth.getUid()).child("avatar.jpg");
 
+    RecyclerView favouriteGamesRecyclerView;
     ImageView avatar;
     TextView userNameTextView;
     TextView userAddressTextView;
@@ -66,6 +75,20 @@ public class UserProfileFragment extends Fragment implements ValueEventListener 
         userDescriptionTextView = view.findViewById(R.id.profile_description);
 
         refreshAvatar();
+
+        favouriteGamesRecyclerView = view.findViewById(R.id.profile_fragment_favourite_games);
+        GamesMenager.getFavouriteGames(new GamesMenager.GamesListener() {
+            @Override
+            public void onSuccess(List<GameDataModel> gamesList) {
+                favouriteGamesRecyclerView.setAdapter(new FavouriteGamesFragment.FavouriteGamesAdapter(gamesList,getContext()));
+                favouriteGamesRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+            }
+
+            @Override
+            public void onError(DatabaseError error) {
+                Snackbar.make(getView(),error.toString(),Snackbar.LENGTH_SHORT);
+            }
+        });
 
 
         userReference.addValueEventListener(this);

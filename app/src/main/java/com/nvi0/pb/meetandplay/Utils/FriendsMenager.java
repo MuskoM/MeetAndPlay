@@ -20,10 +20,6 @@ import java.util.List;
 public class FriendsMenager {
 
     private static final String TAG = "FriendsMenager";
-    private static FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-    private static DatabaseReference userFriendsReference = FirebaseDatabase.getInstance()
-            .getReference("users")
-            .child(user.getUid()).child("friends_ids");
 
     public interface onUserFriendsFetched{
         void onSuccess(List<UserDataModel> stringIds);
@@ -31,6 +27,11 @@ public class FriendsMenager {
     }
 
     public static void getUserFriends(onUserFriendsFetched userFriendsFetchedCallback){
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        DatabaseReference userFriendsReference = FirebaseDatabase.getInstance()
+                .getReference("users")
+                .child(user.getUid()).child("friends_ids");
+        Log.d(TAG, "getUserFriends: USER_ID " + user.getUid());
         Log.d(TAG, "getUserFriends: StartedTheOperation");
         userFriendsReference.addValueEventListener(new ValueEventListener() {
             @Override

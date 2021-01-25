@@ -1,0 +1,31 @@
+
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(…“Ô©ùÿÿÿÿ8œú‰‚ò.
+i
+java:S1128"GRemove this unused import 'com.google.firebase.database.DatabaseError'.(ˆÔµıÿÿÿÿ8¸ÈÔ×ò.
+i
+java:S1128	"LRemove this unused import 'androidx.fragment.app.FragmentStatePagerAdapter'.(œû´8×ÚÈØò.
+n
+java:S1128"LRemove this unused import 'com.google.firebase.database.ValueEventListener'.(‹ŞÜ‹ıÿÿÿÿ8¸ÈÔ×ò.
+E
+java:S1185a"(Remove this method to simply inherit it.(ßìê¯8Æã‡‚ò.
+D
+java:S1068%"'Remove this unused "TAG" private field.(‹ÆÂ¿8·Ó›Ïò.
+l
+java:S1128"JRemove this unused import 'com.nvi0.pb.meetandplay.Utils.BoardGamesAtlas'.(î¿Íüÿÿÿÿ8İ†Õ×ò.
+T
+java:S1128"2Remove this unused import 'android.widget.Button'.(²òıÿÿÿÿ8¨ïÔ×ò.
+M
+java:S1128 "+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8×ÚÈØò.
+c
+java:S1128"FRemove this unused import 'com.google.firebase.database.DataSnapshot'.(şÇŒ„8¸ÈÔ×ò.
+M
+java:S1128"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8×ÚÈØò.
+V
+java:S1128"4Remove this unused import 'android.widget.TextView'.(„Ë‚ˆÿÿÿÿÿ8¨ïÔ×ò.
+]
+java:S1128
+"@Remove this unused import 'androidx.viewpager.widget.ViewPager'.(¨Ù›æ8“ÉØò.
+n
+java:S1128"LRemove this unused import 'com.google.android.material.appbar.AppBarLayout'.(úñŠÌùÿÿÿÿ8¡…Øò.
+d
+java:S1128"BRemove this unused import 'androidx.fragment.app.FragmentManager'.(¯­ë‹ıÿÿÿÿ8×ÚÈØò.

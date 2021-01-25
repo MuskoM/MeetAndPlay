@@ -23,4 +23,8 @@
         <item name="cornerSize">50%</item>
     </style>
 
+    <style name="Theme.MeetAndPlay.CardView" parent="CardView.Light">
+        <item name="android:shadowColor">@color/purple_500</item>
+    </style>
+
 </resources>

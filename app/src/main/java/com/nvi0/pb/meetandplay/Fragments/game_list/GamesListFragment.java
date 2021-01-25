@@ -1,4 +1,4 @@
-package com.nvi0.pb.meetandplay.Fragments;
+package com.nvi0.pb.meetandplay.Fragments.game_list;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -36,9 +36,12 @@ import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
+import com.google.android.material.button.MaterialButton;
+import com.google.android.material.snackbar.Snackbar;
 import com.nvi0.pb.meetandplay.DataModels.GameDataModel;
 import com.nvi0.pb.meetandplay.R;
 import com.nvi0.pb.meetandplay.Utils.BoardGamesAtlas;
+import com.nvi0.pb.meetandplay.Utils.GamesMenager;
 import com.nvi0.pb.meetandplay.Utils.GlideApp;
 
 import org.json.JSONArray;
@@ -147,6 +150,14 @@ public class GamesListFragment extends Fragment {
                 }
             });
 
+            holder.isFavouriteBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Snackbar.make(getView(), "Button " + position + " Clicked", Snackbar.LENGTH_SHORT);
+                    GamesMenager.addFavouriteGame(gameDataModelList.get(position));
+                }
+            });
+
             holder.gameName.setText(gameDataModelList.get(position).getName());
                 GlideApp.with(mContext)
                         .load(gameDataModelList.get(position).getImage_url())
@@ -174,12 +185,14 @@ public class GamesListFragment extends Fragment {
         private class GameListViewHolder extends RecyclerView.ViewHolder {
             private final TextView gameName;
             private final ImageView gameIcon;
+            private final MaterialButton isFavouriteBtn;
 
             public GameListViewHolder(@NonNull View itemView) {
                 super(itemView);
                 gameListElementView = itemView.findViewById(R.id.game_list_element);
                 gameIcon = itemView.findViewById(R.id.game_list_item_icon);
                 gameName = itemView.findViewById(R.id.game_list_item_label);
+                isFavouriteBtn = itemView.findViewById(R.id.game_list_element_isFavourite);
             }
         }
 
@@ -231,12 +244,17 @@ public class GamesListFragment extends Fragment {
                 dialogBuilder.show();
                 Log.d(TAG,"Changed array " + gameDataModelList.get(0).toString());
                 return true;
-            case R.id.game_list_menu_order_by:
-                Toast.makeText(getContext(), "Order By", Toast.LENGTH_SHORT).show();
-                return true;
+            case R.id.game_list_menu_favourites:
+                    getParentFragmentManager().beginTransaction()
+                            .setReorderingAllowed(true).
+                            setCustomAnimations(R.anim.fragment_fade_enter,R.anim.fragment_fade_exit).
+                            replace(R.id.fragment_container_view, FavouriteGamesFragment.class, null)
+                    .commit();
+                break;
             default:
                 return super.onOptionsItemSelected(item);
         }
+        return true;
     }
 
 }

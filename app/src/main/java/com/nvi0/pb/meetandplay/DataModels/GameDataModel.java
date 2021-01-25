@@ -19,4 +19,12 @@ public class GameDataModel {
         this.image_url = image_url;
         this.url = url;
     }
+
+    public static GameDataModel convertToGameDataModel(){
+
+
+
+        return null;
+    }
+
 }

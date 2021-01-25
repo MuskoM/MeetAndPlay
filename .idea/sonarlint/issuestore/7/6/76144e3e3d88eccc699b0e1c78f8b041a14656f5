@@ -1,49 +1,49 @@
 
-v	java:S116&"ZRename this field "password_string" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¦•Âæ8ºğóï.
-S
-java:S1128"1Remove this unused import 'java.io.Serializable'.(èãîÂÿÿÿÿÿ8ºğóï.
-W
-java:S1128	":Remove this unused import 'android.preference.Preference'.(ÆÖ¿•8Ú™Â°ñ.
-Z
-java:S1854s"8Remove this useless assignment to local variable "user".(©Í”äıÿÿÿÿ8ûğé°ñ.
-]	java:S110"<This class has 9 parents which is greater than 5 authorized.(·¡ïõøÿÿÿÿ8ºğóï.
-`
-java:S1874t"CRemove this use of "getDefaultSharedPreferences"; it is deprecated.(¦¨¨¡8Â¨¬°ñ.
-V
-java:S1874t"9Remove this use of "PreferenceManager"; it is deprecated.(¦¨¨¡8Â¨¬°ñ.
+l	java:S116&"WRename this field "login_string" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¦•Âæ
+—
+java:S1186X"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(«û³±
+o	java:S116&"ZRename this field "password_string" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¦•Âæ
+C
+java:S1604m"(Make this anonymous inner class a lambda(„–Ÿ–ùÿÿÿÿ
 D
-java:S1185-"(Remove this method to simply inherit it.(ºŠñ=8±Âá°ñ.
-£
-java:S1186K"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ê¥¾àûÿÿÿÿ8ºğóï.
-H
-java:S1128"+Remove this unused import 'io.realm.Realm'.(½¨ÀÜ8öá•ï.
-s	java:S116&"WRename this field "login_string" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¦•Âæ8ºğóï.
-]	java:S125u"<This block of commented-out lines of code should be removed.(€íËÃùÿÿÿÿ8Ç½±ñ.
-G
-java:S1481t"*Remove this unused "prefs" local variable.(¦¨¨¡8Ç½±ñ.
-J
-java:S1659&"-Declare "password_string" on a separate line.(¦•Âæ8ºğóï.
-f
-java:S1192R"IUse already-defined constant 'TAG' instead of duplicating its value here.(ÙÌŸñ8ç¦ï.
+java:S1604„"(Make this anonymous inner class a lambda(·©‡¾ıÿÿÿÿ
+D
+java:S1481s")Remove this unused "user" local variable.(©Í”äıÿÿÿÿ
+œ
+java:S1186K"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ê¥¾àûÿÿÿÿ
+V	java:S110"<This class has 9 parents which is greater than 5 authorized.(·¡ïõøÿÿÿÿ
+œ
+java:S1186]"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ê¥¾àûÿÿÿÿ
+—
+java:S1186F"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(«û³±
+@
+java:S1481t"*Remove this unused "prefs" local variable.(¦¨¨¡
+V	java:S125u"<This block of commented-out lines of code should be removed.(€íËÃùÿÿÿÿ
+_
+java:S1192R"IUse already-defined constant 'TAG' instead of duplicating its value here.(ÙÌŸñ
+>
+java:S1604h"(Make this anonymous inner class a lambda(¡Ş€Ã
+K
+java:S1659*"5Declare "userCredentialsPassword" on a separate line.(êñÇõ
+C
+java:S1659&"-Declare "password_string" on a separate line.(¦•Âæ
+O
+java:S1854t"9Remove this useless assignment to local variable "prefs".(¦¨¨¡
+=
+java:S1185-"(Remove this method to simply inherit it.(ºŠñ=
 S
-java:S1128"1Remove this unused import 'io.realm.mongodb.App'.(†«ÈÑüÿÿÿÿ8Ÿú¡ï.
-£
-java:S1186]"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ê¥¾àûÿÿÿÿ8ºğóï.
-V
-java:S1854t"9Remove this useless assignment to local variable "prefs".(¦¨¨¡8Ç½±ñ.
-K
-java:S1481s")Remove this unused "user" local variable.(©Í”äıÿÿÿÿ8ûğé°ñ.
-
-java:S1186X"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(«û³±8ºğóï.
-J
-java:S1604m"(Make this anonymous inner class a lambda(„–Ÿ–ùÿÿÿÿ8äÕõï.
-E
-java:S1604h"(Make this anonymous inner class a lambda(¡Ş€Ã8ÈÙ÷ï.
-K
-java:S1604„"(Make this anonymous inner class a lambda(·©‡¾ıÿÿÿÿ8ºğóï.
+java:S1854s"8Remove this useless assignment to local variable "user".(©Í”äıÿÿÿÿ
+O
+java:S1874t"9Remove this use of "PreferenceManager"; it is deprecated.(¦¨¨¡
+Y
+java:S1874t"CRemove this use of "getDefaultSharedPreferences"; it is deprecated.(¦¨¨¡
+S
+java:S1128"1Remove this unused import 'io.realm.mongodb.App'.(†«ÈÑüÿÿÿÿ8ÈŒÑÙò.
+H
+java:S1128"+Remove this unused import 'io.realm.Realm'.(½¨ÀÜ8ÈŒÑÙò.
+S
+java:S1128"1Remove this unused import 'java.io.Serializable'.(èãîÂÿÿÿÿÿ8ÈŒÑÙò.
 [
-java:S1128">Remove this unused import 'io.realm.mongodb.AppConfiguration'.(ˆë”£8öá•ï.
-R
-java:S1659*"5Declare "userCredentialsPassword" on a separate line.(êñÇõ8ºğóï.
-
-java:S1186F"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(«û³±8ºğóï.
+java:S1128">Remove this unused import 'io.realm.mongodb.AppConfiguration'.(ˆë”£8ÈŒÑÙò.
+W
+java:S1128	":Remove this unused import 'android.preference.Preference'.(ÆÖ¿•8ÈŒÑÙò.

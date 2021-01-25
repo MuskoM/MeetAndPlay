@@ -4,8 +4,6 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -31,10 +29,8 @@ import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -43,17 +39,13 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.StorageMetadata;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-import com.nvi0.pb.meetandplay.Fragments.GamesListFragment;
 import com.nvi0.pb.meetandplay.R;
 import com.nvi0.pb.meetandplay.Utils.GlideApp;
 
 import java.io.File;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.HashMap;
 
 import static androidx.core.content.ContextCompat.checkSelfPermission;
@@ -116,6 +108,7 @@ public class EditUserProfileFragment extends Fragment implements ValueEventListe
         profileEditPhone = view.findViewById(R.id.profile_edit_details_phone_number);
         saveChangesButton = view.findViewById(R.id.profile_edit_save_button);
 
+        refreshAvatar();
 
         //Hint listener
         userProfileDataReference.addValueEventListener(this);
@@ -194,6 +187,12 @@ public class EditUserProfileFragment extends Fragment implements ValueEventListe
     }
 
     @Override
+    public void onResume() {
+        super.onResume();
+        refreshAvatar();
+    }
+
+    @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == MY_CAMERA_PERMISSION_CODE) {
@@ -230,19 +229,7 @@ public class EditUserProfileFragment extends Fragment implements ValueEventListe
                             Toast.LENGTH_SHORT).show();
                 }
             });
-            GlideApp.with(this).load(storageAvatarReference).error(R.drawable.ic_launcher_background).listener(new RequestListener<Drawable>() {
-                @Override
-                public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
-                    Log.e("GLIDE ERROR","Error", e);
-                    return false;
-                }
-
-                @Override
-                public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
-                    Log.e("GLIDE ERROR","Ready");
-                    return false;
-                }
-            }).into(profileEditAvatar);
+            refreshAvatar();
         }
     }
 
@@ -258,5 +245,22 @@ public class EditUserProfileFragment extends Fragment implements ValueEventListe
         pictureFilePath = imageUri;
 
     }
+
+    private void refreshAvatar() {
+        GlideApp.with(this).load(storageAvatarReference).error(R.drawable.ic_launcher_background).listener(new RequestListener<Drawable>() {
+            @Override
+            public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
+                Log.e("GLIDE ERROR","Error", e);
+                return false;
+            }
+
+            @Override
+            public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
+                Log.e("GLIDE ERROR","Ready");
+                return false;
+            }
+        }).into(profileEditAvatar);
+    }
+
 
 }

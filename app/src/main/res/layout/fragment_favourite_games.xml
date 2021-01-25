@@ -8,7 +8,7 @@
     tools:menu="@menu/game_list_menu">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/games_list_container"
+        android:id="@+id/favourite_games_list_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"

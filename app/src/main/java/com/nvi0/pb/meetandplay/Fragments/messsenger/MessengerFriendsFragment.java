@@ -51,7 +51,6 @@ public class MessengerFriendsFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
@@ -77,7 +76,11 @@ public class MessengerFriendsFragment extends Fragment {
             }
         });
 
+    }
 
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
     }
 
     @Override

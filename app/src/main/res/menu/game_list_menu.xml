@@ -3,14 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
+        android:id="@+id/game_list_menu_favourites"
+        android:icon="@drawable/ic_baseline_favorite_24"
+        android:title="Favourites"
+        app:showAsAction="ifRoom"
+        />
+
+    <item
         android:id="@+id/game_list_menu_search"
         android:icon="@drawable/ic_baseline_search_24"
         android:title="Search"
-        app:showAsAction="ifRoom"/>
-    <item
-        android:id="@+id/game_list_menu_order_by"
-        android:icon="@drawable/ic_baseline_format_list"
-        android:title="Sort"
         app:showAsAction="ifRoom"/>
 
 </menu>

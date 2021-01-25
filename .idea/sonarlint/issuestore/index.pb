@@ -33,8 +33,6 @@ k
 Kapp/src/main/java/com/nvi0/pb/meetandplay/Utils/RequestsQueueSingleton.java,6\9\69c7344caf53318c683d296ba4a92bde6d730c7d
 t
 Dapp/src/main/java/com/nvi0/pb/meetandplay/Utils/BoardGamesAtlas.java,a\1\a1f372b0adf7447a4cb2b28c3d3fa9d99eb8f91c
-z
-Japp/src/main/java/com/nvi0/pb/meetandplay/Fragments/MessengerFragment.java,e\7\e79f6bf3c3a53ef5c6cf15678bb8f2bd42b8d1ad
 ~
 Napp/src/main/java/com/nvi0/pb/meetandplay/DataModels/GameSessionDataModel.java,a\d\adfad7959597814f49e56e19036b5809f4af8a53
 w
@@ -45,3 +43,11 @@ Gapp/src/main/java/com/nvi0/pb/meetandplay/DataModels/UserDataModel.java,f\6\f6
 Xapp/src/main/java/com/nvi0/pb/meetandplay/Fragments/UserProfile/UserProfileFragment.java,6\0\60f8f779b032a08da9379b7242912cdaae2301cc
 Œ
 \app/src/main/java/com/nvi0/pb/meetandplay/Fragments/UserProfile/EditUserProfileFragment.java,7\0\70c369292de739adae38aa7ffbf8939b5248c755
+‹
+[app/src/main/java/com/nvi0/pb/meetandplay/Fragments/messsenger/MessengerConvosFragment.java,a\7\a71aed0f97680b97c1fb2f482a54f19965d68cb7
+…
+Uapp/src/main/java/com/nvi0/pb/meetandplay/Fragments/messsenger/MessengerFragment.java,1\7\17edfba3bc12c1bc860c4e6f40d6f8aa1809dab6
+s
+Capp/src/main/java/com/nvi0/pb/meetandplay/Utils/FriendsMenager.java,8\0\8069e15f7c85938e5c20abc8708c61f9edcf67d7
+Œ
+\app/src/main/java/com/nvi0/pb/meetandplay/Fragments/messsenger/MessengerFriendsFragment.java,b\a\ba3bc514f70b3ac4eccb6864cacd9e0f5a322f93

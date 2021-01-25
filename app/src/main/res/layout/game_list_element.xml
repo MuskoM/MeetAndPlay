@@ -1,32 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:id="@+id/game_list_element"
+<androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="100dp"
-    >
+    style="@style/Theme.MeetAndPlay.CardView"
+    android:layout_margin="8dp"
+    android:layout_height="100dp">
 
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/game_list_item_icon"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        app:shapeAppearanceOverlay="@style/CircularImage"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/game_list_element"
+        android:padding="14sp"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        >
 
-    <TextView
-        android:id="@+id/game_list_item_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="14sp"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@id/game_list_item_icon"
-        app:layout_constraintTop_toTopOf="parent" />
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/game_list_item_icon"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            app:shapeAppearanceOverlay="@style/CircularImage"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/game_list_item_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="14sp"
+            android:text="TextView"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/game_list_item_icon"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/game_list_element_isFavourite"
+            style="?attr/borderlessButtonStyle"
+            android:layout_width="36dp"
+            android:layout_height="wrap_content"
+            app:icon="@drawable/ic_baseline_favorite_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
