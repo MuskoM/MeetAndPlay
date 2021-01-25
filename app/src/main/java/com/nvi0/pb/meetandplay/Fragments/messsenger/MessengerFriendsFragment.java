@@ -13,6 +13,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -45,7 +48,7 @@ public class MessengerFriendsFragment extends Fragment {
     RecyclerView messengerFriendsRecyclerView;
 
     public MessengerFriendsFragment() {
-        // Required empty public constructor
+        setHasOptionsMenu(true);
     }
 
     @Override
@@ -156,4 +159,19 @@ public class MessengerFriendsFragment extends Fragment {
 
     }
 
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.profile_menu,menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        if (R.id.profile_menu_edit == item.getItemId()){
+            FriendsMenager.addUserFriend("mateusz");
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
 }

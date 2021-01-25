@@ -10,6 +10,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.nvi0.pb.meetandplay.DataModels.UserDataModel;
 
@@ -66,12 +67,36 @@ public class FriendsMenager {
     }
 
 
-    public static void addUserFriend(String Uid){
+    public static void addUserFriend(String name){
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        DatabaseReference userFriendsReference = FirebaseDatabase.getInstance()
+                .getReference("users");
+
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("users");
+        ref.orderByChild("name").equalTo(name).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot userSnapshot: dataSnapshot.getChildren()) {
+                    userFriendsReference.child(user.getUid()).child("friends_ids") .push().setValue(userSnapshot.getKey());
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                throw databaseError.toException();
+            }
+        });
+
+
 
     }
 
 
     public static void removeUserFriend(String Uid){
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        DatabaseReference userFriendsReference = FirebaseDatabase.getInstance()
+                .getReference("users")
+                .child(user.getUid()).child("friends_ids");
 
     }
 

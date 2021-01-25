@@ -37,6 +37,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.nvi0.pb.meetandplay.DataModels.GameDataModel;
 import com.nvi0.pb.meetandplay.R;
+import com.nvi0.pb.meetandplay.Utils.FavouriteGamesAdapter;
 import com.nvi0.pb.meetandplay.Utils.GamesMenager;
 import com.nvi0.pb.meetandplay.Utils.GlideApp;
 
@@ -66,7 +67,7 @@ public class FavouriteGamesFragment extends Fragment {
         GamesMenager.getFavouriteGames(new GamesMenager.GamesListener() {
             @Override
             public void onSuccess(List<GameDataModel> gamesList) {
-                favouriteGamesrecyclerView.setAdapter(new FavouriteGamesFragment.FavouriteGamesAdapter(gamesList,getContext()));
+                favouriteGamesrecyclerView.setAdapter(new FavouriteGamesAdapter(gamesList,getContext()));
                 favouriteGamesrecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
             }
 

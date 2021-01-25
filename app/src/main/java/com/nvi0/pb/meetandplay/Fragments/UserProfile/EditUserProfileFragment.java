@@ -134,13 +134,13 @@ public class EditUserProfileFragment extends Fragment implements ValueEventListe
         saveChangesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                HashMap<String, String> data = new HashMap<>();
+                HashMap<String, Object> data = new HashMap<>();
                 data.put("profileName", profileEditprofileName.getText().toString());
                 data.put("mail", profileEditMail.getText().toString());
                 data.put("description", profileEditDescription.getText().toString());
                 data.put("phone", profileEditPhone.getText().toString());
                 data.put("address", profileEditAddress.getText().toString());
-                userProfileDataReference.setValue(data);
+                userProfileDataReference.updateChildren(data);
 
                 getParentFragmentManager().beginTransaction()
                         .setReorderingAllowed(true)

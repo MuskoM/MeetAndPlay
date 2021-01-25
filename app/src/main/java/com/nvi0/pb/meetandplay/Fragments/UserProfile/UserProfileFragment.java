@@ -11,6 +11,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -34,6 +37,7 @@ import com.google.firebase.storage.StorageReference;
 import com.nvi0.pb.meetandplay.DataModels.GameDataModel;
 import com.nvi0.pb.meetandplay.Fragments.game_list.FavouriteGamesFragment;
 import com.nvi0.pb.meetandplay.R;
+import com.nvi0.pb.meetandplay.Utils.FavouriteGamesAdapter;
 import com.nvi0.pb.meetandplay.Utils.GamesMenager;
 import com.nvi0.pb.meetandplay.Utils.GlideApp;
 
@@ -55,10 +59,9 @@ public class UserProfileFragment extends Fragment implements ValueEventListener 
     TextView userMailTextView;
     TextView userPhoneTextView;
     TextView userDescriptionTextView;
-    Button editUserProfileBtn;
 
     public UserProfileFragment() {
-
+        setHasOptionsMenu(true);
     }
 
     @Override
@@ -66,7 +69,6 @@ public class UserProfileFragment extends Fragment implements ValueEventListener 
         super.onViewCreated(view, savedInstanceState);
 
         //Elements
-        editUserProfileBtn = view.findViewById(R.id.profile_edit_button);
         userNameTextView = view.findViewById(R.id.profile_username);
         avatar = view.findViewById(R.id.profile_image);
         userAddressTextView = view.findViewById(R.id.profile_details_address);
@@ -80,7 +82,7 @@ public class UserProfileFragment extends Fragment implements ValueEventListener 
         GamesMenager.getFavouriteGames(new GamesMenager.GamesListener() {
             @Override
             public void onSuccess(List<GameDataModel> gamesList) {
-                favouriteGamesRecyclerView.setAdapter(new FavouriteGamesFragment.FavouriteGamesAdapter(gamesList,getContext()));
+                favouriteGamesRecyclerView.setAdapter(new FavouriteGamesAdapter(gamesList,getContext()));
                 favouriteGamesRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
             }
 
@@ -90,20 +92,7 @@ public class UserProfileFragment extends Fragment implements ValueEventListener 
             }
         });
 
-
         userReference.addValueEventListener(this);
-
-
-        editUserProfileBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getParentFragmentManager().beginTransaction()
-                        .setReorderingAllowed(true)
-                        .setCustomAnimations(R.anim.fragment_fade_enter,R.anim.fragment_fade_exit)
-                        .replace(R.id.fragment_container_view, EditUserProfileFragment.class,null)
-                        .commit();
-            }
-        });
 
     }
 
@@ -180,4 +169,26 @@ public class UserProfileFragment extends Fragment implements ValueEventListener 
 
     }
 
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.profile_menu,menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+
+        switch (item.getItemId()){
+            case R.id.profile_menu_edit:
+                getParentFragmentManager().beginTransaction()
+                        .setReorderingAllowed(true)
+                        .setCustomAnimations(R.anim.fragment_fade_enter,R.anim.fragment_fade_exit)
+                        .replace(R.id.fragment_container_view, EditUserProfileFragment.class,null)
+                        .commit();
+                break;
+        }
+
+        return super.onOptionsItemSelected(item);
+
+    }
 }
