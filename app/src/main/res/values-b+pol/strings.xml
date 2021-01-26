@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">MeetAndPlay</string>
+    <string name="login_label">Login</string>
+    <string name="login_hint">Wprowadź login</string>
+    <string name="password_label">Hasło</string>
+    <string name="repeat_password_label">Powtórz hasło</string>
+    <string name="repeat_password_hint">Wpisz hasło aby potwierdzić</string>
+    <string name="password_hint">Wprowadź hasło</string>
+    <string name="login_button_label">Zaloguj</string>
+    <string name="user_not_registered_label">Nie masz jeszcze konta?</string>
+    <string name="register_button_label">Zarejestruj</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Pusty fragment</string>
+    <string name="bottom_menu_Profile_label">Profil</string>
+    <string name="bottom_menu_list_label">Lista Gier</string>
+    <string name="bottom_menu_messagging_label">Wiadomości</string>
+    <string name="bottom_menu_logout_label">Użytkownicy</string>
+    <string name="profile_description_default">Brak opisu, chcesz jakiś dodać?</string>
+    <string name="profile_edit_username_hint">Nazwa użytkownika</string>
+    <string name="profile_edit_details_address_hint">Adres</string>
+    <string name="profile_edit_details_email_hint">Mail</string>
+    <string name="profile_edit_details_phone_hint">Telefon:</string>
+    <string name="profile_edit_save_changes_button">Zapisz</string>
+</resources>

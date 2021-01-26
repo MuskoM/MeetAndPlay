@@ -1,0 +1,23 @@
+
+‹
+java:S3252œ"hUse static access with "com.google.android.material.snackbar.BaseTransientBottomBar" for "LENGTH_SHORT".(Ô½°ıÿÿÿÿ8…„Ûó.
+K
+java:S1604™"(Make this anonymous inner class a lambda(™‘œ±ÿÿÿÿÿ8òƒÛó.
+F
+java:S1604Ø"(Make this anonymous inner class a lambda(Û¾Èî8…„Ûó.
+T
+java:S1128"2Remove this unused import 'android.widget.Button'.(²òıÿÿÿÿ8óÒ”Öò.
+E
+java:S1185H"(Remove this method to simply inherit it.(ßìê¯8ÇèÖò.
+O
+java:S1128
+"-Remove this unused import 'android.os.Build'.(ãÇ¤Úıÿÿÿÿ8¤³Õò.
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÖƒŒ™
+`
+java:S1128">Remove this unused import 'android.media.browse.MediaBrowser'.(èßû•ÿÿÿÿÿ8¤ÈÊÓò.
+K
+java:S1604"(Make this anonymous inner class a lambda(Şâô´ùÿÿÿÿ8¹»¬Ùò.
+Y
+java:S1128"<Remove this unused import 'androidx.annotation.RequiresApi'.(å„» 8¤³Õò.
+R
+java:S11286"0Remove this unused import 'lombok.SneakyThrows'.(¨³üÖûÿÿÿÿ8ãØŞÕò.

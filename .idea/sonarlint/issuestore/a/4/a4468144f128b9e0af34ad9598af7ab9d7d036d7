@@ -1,0 +1,50 @@
+
+n
+java:S1128%"LRemove this unused import 'com.google.firebase.database.ValueEventListener'.(‹ŞÜ‹ıÿÿÿÿ8¸ı½Úó.
+b
+java:S1128"ERemove this unused import 'com.bumptech.glide.request.target.Target'.(‰ì¾Ş8ıÔÛó.
+d
+java:S1128 "BRemove this unused import 'com.google.firebase.auth.FirebaseUser'.(’àíĞùÿÿÿÿ8°Ğ¾Úó.
+E
+java:S11859"(Remove this method to simply inherit it.(ßìê¯8Æ”Øó.
+g
+java:S1128#"KRemove this unused import 'com.google.firebase.database.DatabaseReference'.(ÉÓ¹8°Ğ¾Úó.
+d
+java:S1128"GRemove this unused import 'com.bumptech.glide.request.RequestListener'.(ØÈôÉ8ıÔÛó.
+g
+java:S1128$"JRemove this unused import 'com.google.firebase.database.FirebaseDatabase'.(×Ë—8°Ğ¾Úó.
+l
+java:S1128"JRemove this unused import 'com.bumptech.glide.load.engine.GlideException'.(¡â€œıÿÿÿÿ8ıÔÛó.
+O
+java:S1128"-Remove this unused import 'android.os.Build'.(ãÇ¤Úıÿÿÿÿ8¸ı½Úó.
+Q
+java:S1128"4Remove this unused import 'android.content.Context'.(©Ê‰è8ıÔÛó.
+a
+java:S1128"?Remove this unused import 'com.bumptech.glide.load.DataSource'.(ÂË›²ûÿÿÿÿ8ıÔÛó.
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÖƒŒ™
+a
+java:S1128"?Remove this unused import 'android.graphics.drawable.Drawable'.(Á‰º„ùÿÿÿÿ8ıÔÛó.
+Š
+java:S3252L"hUse static access with "com.google.android.material.snackbar.BaseTransientBottomBar" for "LENGTH_SHORT".(íªÙşÿÿÿÿÿ8™·ÊÚó.
+c
+java:S1128!"FRemove this unused import 'com.google.firebase.database.DataSnapshot'.(şÇŒ„8¸ı½Úó.
+V
+java:S1128"4Remove this unused import 'android.widget.TextView'.(„Ë‚ˆÿÿÿÿÿ8ıÔÛó.
+N
+java:S1128",Remove this unused import 'android.net.Uri'.(òêû‘ıÿÿÿÿ8ıÔÛó.
+p
+java:S1128"NRemove this unused import 'androidx.constraintlayout.widget.ConstraintLayout'.(¨‘úÿÿÿÿ8ÎºØÛó.
+k
+java:S1128"NRemove this unused import 'com.google.android.material.button.MaterialButton'.(Õ­íÄ8ıÔÛó.
+d
+java:S1128"BRemove this unused import 'com.google.firebase.auth.FirebaseAuth'.(İÄğöûÿÿÿÿ8°Ğ¾Úó.
+M
+java:S1128,"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8¸ı½Úó.
+Y
+java:S1128"<Remove this unused import 'androidx.annotation.RequiresApi'.(å„» 8¸ı½Úó.
+O
+java:S1128"3Remove this unused import 'android.content.Intent'.(³ğ‹G8ıÔÛó.
+W
+java:S1128"5Remove this unused import 'android.widget.ImageView'.(ú¯ëàüÿÿÿÿ8ıÔÛó.
+_
+java:S1128*"CRemove this unused import 'com.nvi0.pb.meetandplay.Utils.GlideApp'.(×©Ù8ıÔÛó.

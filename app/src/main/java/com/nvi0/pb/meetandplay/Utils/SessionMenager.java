@@ -1,8 +1,10 @@
 package com.nvi0.pb.meetandplay.Utils;
 
+import android.os.Build;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -18,65 +20,50 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class FriendsMenager {
+public class SessionMenager {
 
-    private static final String TAG = "FriendsMenager";
+    private static final String TAG = "SessionMenager";
 
     public interface onUserFriendsFetched{
         void onSuccess(List<UserDataModel> stringIds);
         void onError(String err);
     }
 
-    public static void getUserFriends(onUserFriendsFetched userFriendsFetchedCallback){
+    public static void getUsersOnApp(onUserFriendsFetched userFriendsFetchedCallback){
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         DatabaseReference userFriendsReference = FirebaseDatabase.getInstance()
-                .getReference("users")
-                .child(user.getUid()).child("friends_ids");
+                .getReference("users");
         Log.d(TAG, "getUserFriends: USER_ID " + user.getUid());
         Log.d(TAG, "getUserFriends: StartedTheOperation");
-        userFriendsReference.addValueEventListener(new ValueEventListener() {
+        UserDataModel.converToUserDataModelList(userFriendsReference, new UserDataModel.convertUsersToListCallback() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                List<UserDataModel> stringIds = new ArrayList<>();
-                for (DataSnapshot ds: snapshot.getChildren()
-                     ) {
-
-                    UserDataModel.convertToUserDataModel(ds.getValue(String.class), new UserDataModel.convertUserCallback() {
-                        @Override
-                        public void onSuccess(UserDataModel user) {
-                            stringIds.add(user);
-                            Log.e(TAG, "onSuccess: helperFun inside " + user );
-                            userFriendsFetchedCallback.onSuccess(stringIds);
-                        }
-
-                        @Override
-                        public void onError(String err) {
-
-                        }
-                    });
-                }
+            public void onSuccess(List<UserDataModel> user) {
+                userFriendsFetchedCallback.onSuccess(user);
             }
 
             @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                userFriendsFetchedCallback.onError("Didn't fetch Any friends :(");
-                Log.e(TAG, "onCancelled: Error in getting on of the Friends" );
+            public void onError(String err) {
+                userFriendsFetchedCallback.onError("Error fetchingUsers");
             }
         });
 
     }
 
 
-    public static void addUserFriend(String name){
+    public static void addGameSession(String name){
+        Log.d(TAG, "onDataChange: AddUserFriend ");
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         DatabaseReference userFriendsReference = FirebaseDatabase.getInstance()
                 .getReference("users");
 
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("users");
-        ref.orderByChild("name").equalTo(name).addListenerForSingleValueEvent(new ValueEventListener() {
+        ref.orderByChild("profileName").equalTo(name).addListenerForSingleValueEvent(new ValueEventListener() {
+            @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+
                 for (DataSnapshot userSnapshot: dataSnapshot.getChildren()) {
+                    Log.d(TAG, "onDataChange: User: " + userSnapshot.toString());
                     userFriendsReference.child(user.getUid()).child("friends_ids") .push().setValue(userSnapshot.getKey());
                 }
             }
@@ -92,7 +79,7 @@ public class FriendsMenager {
     }
 
 
-    public static void removeUserFriend(String Uid){
+    public static void removeGameSession(String Uid){
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         DatabaseReference userFriendsReference = FirebaseDatabase.getInstance()
                 .getReference("users")

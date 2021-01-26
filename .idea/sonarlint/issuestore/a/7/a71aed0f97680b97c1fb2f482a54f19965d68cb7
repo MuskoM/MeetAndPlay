@@ -1,6 +1,10 @@
 
-‚
-java:S1488"`Immediately return this expression instead of assigning it to the temporary variable "fragment".(ÒÉ»ªúÿÿÿÿ8Üñ–Øò.
+£
+java:S11866"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ä»äºûÿÿÿÿ8Õ±¯×ó.
 t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(…“Ô©ùÿÿÿÿ
+‚
+java:S1488"`Immediately return this expression instead of assigning it to the temporary variable "fragment".(ÒÉ»ªúÿÿÿÿ8Üñ–Øò.
 E
-java:S1185"(Remove this method to simply inherit it.(ßìê¯8ëÉ—Øò.
+java:S1185!"(Remove this method to simply inherit it.(ßìê¯8ëÉ—Øò.
+u
+java:S26372"XThis method's return value is marked "androidx.annotation.NonNull" but null is returned.(¥¹ï8Õ±¯×ó.

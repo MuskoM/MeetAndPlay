@@ -39,6 +39,28 @@ public class BoardGamesAtlas {
         void onResponse(JSONArray games) throws JSONException;
     }
 
+    public interface IconResponseListener{
+        void onSuccess(String url);
+    }
+
+    public void getGameIcon(String name, IconResponseListener responseListener ){
+
+        String url = URL + "name="+name+"&client_id=8bhyRCOg0t&fields=image_url,&limit=1";
+
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null,
+                new Response.Listener<JSONObject>() {
+                    @SneakyThrows
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        games = response.getJSONArray("games");
+                        responseListener.onSuccess(games.getJSONObject(0).getString("image_url"));
+                    }
+                }, error -> {
+
+        });
+
+    }
+
     public JSONArray getBoardGamesWithImage(String name, VolleyResponseListener volleyResponseListener){
 
         String url = URL + "name="+name+"&client_id=8bhyRCOg0t&fields=name,image_url,url,&limit=10";

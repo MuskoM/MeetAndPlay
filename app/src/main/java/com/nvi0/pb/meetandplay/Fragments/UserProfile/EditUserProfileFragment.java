@@ -29,6 +29,7 @@ import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
+import com.bumptech.glide.signature.ObjectKey;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -108,7 +109,10 @@ public class EditUserProfileFragment extends Fragment implements ValueEventListe
         profileEditPhone = view.findViewById(R.id.profile_edit_details_phone_number);
         saveChangesButton = view.findViewById(R.id.profile_edit_save_button);
 
-        refreshAvatar();
+        GlideApp.with(this).load(storageAvatarReference)
+                .error(R.drawable.ic_launcher_background)
+                .signature(new ObjectKey(String.valueOf(System.currentTimeMillis())))
+                .into(profileEditAvatar);
 
         //Hint listener
         userProfileDataReference.addValueEventListener(this);
@@ -186,11 +190,6 @@ public class EditUserProfileFragment extends Fragment implements ValueEventListe
 
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        refreshAvatar();
-    }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -224,12 +223,14 @@ public class EditUserProfileFragment extends Fragment implements ValueEventListe
             }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                    GlideApp.with(getContext()).load(storageAvatarReference)
+                            .signature(new ObjectKey(String.valueOf(System.currentTimeMillis())))
+                            .error(R.drawable.ic_launcher_background).into(profileEditAvatar);
                     Toast.makeText(getContext(),
                             "Image has been uploaded to cloud storage",
                             Toast.LENGTH_SHORT).show();
                 }
             });
-            refreshAvatar();
         }
     }
 
@@ -245,22 +246,5 @@ public class EditUserProfileFragment extends Fragment implements ValueEventListe
         pictureFilePath = imageUri;
 
     }
-
-    private void refreshAvatar() {
-        GlideApp.with(this).load(storageAvatarReference).error(R.drawable.ic_launcher_background).listener(new RequestListener<Drawable>() {
-            @Override
-            public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
-                Log.e("GLIDE ERROR","Error", e);
-                return false;
-            }
-
-            @Override
-            public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
-                Log.e("GLIDE ERROR","Ready");
-                return false;
-            }
-        }).into(profileEditAvatar);
-    }
-
 
 }

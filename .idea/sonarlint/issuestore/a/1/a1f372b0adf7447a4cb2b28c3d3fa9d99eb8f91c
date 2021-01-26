@@ -1,13 +1,13 @@
 
-M
-java:S1128"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8ÀÀÊ§ò.
-E
-java:S1604/"(Make this anonymous inner class a lambda(ÑÂğ8âúÿñ.
-t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(õúÎÀøÿÿÿÿ
-R
-java:S1128"0Remove this unused import 'lombok.SneakyThrows'.(¨³üÖûÿÿÿÿ8á½’Ïò.
 j
 java:S1128	"HRemove this unused import 'com.android.volley.toolbox.JsonArrayRequest'.(šéíøÿÿÿÿ8á½’Ïò.
-X	java:S125"<This block of commented-out lines of code should be removed.(ıìñ8¡’¨ÿñ.
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(õúÎÀøÿÿÿÿ
 b
 java:S1124"EReorder the modifiers to comply with the Java Language Specification.(ç¸ÒÙ8¦‘íşñ.
+E
+java:S1604/"(Make this anonymous inner class a lambda(ÑÂğ8âúÿñ.
+M
+java:S1128"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8ÀÀÊ§ò.
+R
+java:S1128"0Remove this unused import 'lombok.SneakyThrows'.(¨³üÖûÿÿÿÿ8á½’Ïò.
+X	java:S125"<This block of commented-out lines of code should be removed.(ıìñ8¡’¨ÿñ.

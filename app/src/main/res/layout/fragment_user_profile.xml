@@ -7,6 +7,7 @@
     tools:context=".Fragments.UserProfile.UserProfileFragment">
 
     <com.google.android.material.card.MaterialCardView
+        android:layout_margin="8dp"
         android:id="@+id/profile_card_1"
         style="@style/CardView"
         android:layout_width="match_parent"
@@ -22,6 +23,7 @@
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/profile_image"
                 android:layout_width="128dp"
+                android:layout_marginBottom="8dp"
                 android:layout_height="128dp"
                 android:src="@mipmap/the_boiz_round"
                 app:layout_constraintStart_toStartOf="parent"
@@ -44,6 +46,7 @@
     </com.google.android.material.card.MaterialCardView>
 
     <com.google.android.material.card.MaterialCardView
+        android:layout_margin="8dp"
         android:id="@+id/profile_description_card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -65,6 +68,7 @@
 
 
     <androidx.cardview.widget.CardView
+        android:layout_margin="8dp"
         android:id="@+id/profile_details_card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -106,6 +110,7 @@
     </androidx.cardview.widget.CardView>
 
     <com.google.android.material.card.MaterialCardView
+        android:layout_margin="8dp"
         android:layout_width="match_parent"
     android:layout_height="0dp"
     app:layout_constraintStart_toStartOf="parent"

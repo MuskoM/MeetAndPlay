@@ -25,8 +25,6 @@ H
 app/google-services.json,f\d\fd8d34b142d02ec743a8efefefd2c097961666e9
 k
 ;app/src/main/java/com/nvi0/pb/meetandplay/MainActivity.java,c\7\c7bff1fa71970e9ff2df46f5cde8e95c6f35c689
-z
-Japp/src/main/java/com/nvi0/pb/meetandplay/Fragments/GamesListFragment.java,f\b\fb2762a8be3726ca35f117e8318af74d91183b11
 k
 ;app/src/main/java/com/nvi0/pb/meetandplay/Utils/Glider.java,e\0\e06c2e588491dd3afe75e00148404b427869ef45
 {
@@ -51,3 +49,11 @@ s
 Capp/src/main/java/com/nvi0/pb/meetandplay/Utils/FriendsMenager.java,8\0\8069e15f7c85938e5c20abc8708c61f9edcf67d7
 Œ
 \app/src/main/java/com/nvi0/pb/meetandplay/Fragments/messsenger/MessengerFriendsFragment.java,b\a\ba3bc514f70b3ac4eccb6864cacd9e0f5a322f93
+‰
+Yapp/src/main/java/com/nvi0/pb/meetandplay/Fragments/game_list/FavouriteGamesFragment.java,a\4\a4468144f128b9e0af34ad9598af7ab9d7d036d7
+q
+Aapp/src/main/java/com/nvi0/pb/meetandplay/Utils/GamesMenager.java,3\5\35e96ccce425dc8e5a70d0cd607beb2f3d029282
+z
+Japp/src/main/java/com/nvi0/pb/meetandplay/Utils/FavouriteGamesAdapter.java,5\5\5541f76b21be2e5442a6f60fa1cf519edcc59917
+„
+Tapp/src/main/java/com/nvi0/pb/meetandplay/Fragments/game_list/GamesListFragment.java,c\a\caa041a6551c9db6d8ba8615528579c51f39abe7

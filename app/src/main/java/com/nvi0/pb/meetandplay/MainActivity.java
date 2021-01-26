@@ -14,7 +14,7 @@ import com.android.volley.toolbox.Volley;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.nvi0.pb.meetandplay.Fragments.game_list.GamesListFragment;
-import com.nvi0.pb.meetandplay.Fragments.messsenger.MessengerFragment;
+import com.nvi0.pb.meetandplay.Fragments.game_sessions.MeetAndPlayFragment;
 import com.nvi0.pb.meetandplay.Fragments.UserProfile.UserProfileFragment;
 
 
@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
                         getSupportFragmentManager().beginTransaction()
                                 .setReorderingAllowed(true)
                                 .setCustomAnimations(R.anim.fragment_fade_enter,R.anim.fragment_fade_exit)
-                                .replace(R.id.fragment_container_view, MessengerFragment.class, userDataBundle)
+                                .replace(R.id.fragment_container_view, MeetAndPlayFragment.class, userDataBundle)
                                 .commit();
                         break;
 

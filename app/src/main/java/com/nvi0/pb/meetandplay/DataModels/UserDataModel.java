@@ -13,13 +13,16 @@ import com.google.firebase.database.ValueEventListener;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 import io.realm.mongodb.User;
 import lombok.Getter;
+import lombok.Setter;
 
 @Getter
+@Setter
 public class UserDataModel {
 
     private static final String TAG = "UserDataModel";
@@ -35,8 +38,6 @@ public class UserDataModel {
     private String description;
     private String address;
     private List<GameDataModel> ownedGames;
-    private List<GameSessionDataModel> sessionsPlayed;
-    private List<GameSessionDataModel> plannedSessions;
     private List<UserDataModel> friendsList;
 
     public UserDataModel(String _id, String mail) {
@@ -59,16 +60,78 @@ public class UserDataModel {
 
     }
 
-    public interface convertUserCallback{
+    public interface convertUserCallback {
         void onSuccess(UserDataModel user);
+
         void onError(String err);
     }
 
-    public static UserDataModel convertToUserDataModel(String Uid, convertUserCallback callback) {
-        final HashMap<String,String> credentials = new HashMap<>();
-        final HashMap<String,UserDataModel> userModels = new HashMap<>();
+    public interface convertUsersToListCallback {
+        void onSuccess(List<UserDataModel> user);
 
-        Log.d(TAG,"REFERENCE " + usersReference.child(Uid).toString());
+        void onError(String err);
+    }
+
+
+    public static void converToUserDataModelList(DatabaseReference dbRef, convertUsersToListCallback convertUsersToListCallback) {
+
+        dbRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                List<UserDataModel> userDataModels = new ArrayList<>();
+                final HashMap<String, String> credentials = new HashMap<>();
+
+                for (DataSnapshot ds : snapshot.getChildren()
+                ) {
+
+                    for (DataSnapshot user_details : ds.getChildren()
+                    ) {
+                        Log.d(TAG, "onDataChange: KEY: " + user_details.getValue());
+                        switch (user_details.getKey()) {
+                            case "profileName":
+                                credentials.put("profileName", user_details.getValue(String.class));
+                                break;
+                            case "mail":
+                                credentials.put("mail", user_details.getValue(String.class));
+                                break;
+                            case "description":
+                                credentials.put("description", user_details.getValue(String.class));
+                                break;
+                            case "phone":
+                                credentials.put("phone", user_details.getValue(String.class));
+                                break;
+                            case "address":
+                                credentials.put("address", user_details.getValue(String.class));
+                                break;
+
+                        }
+                    }
+
+                    UserDataModel userDataModel = new UserDataModel(ds.getKey(), credentials.get("mail"));
+                    userDataModel.profileName = credentials.get("profileName");
+                    userDataModel.description = credentials.get("description");
+                    userDataModel.phoneNumber = credentials.get("phone");
+                    userDataModel.address = credentials.get("address");
+                    userDataModels.add(userDataModel);
+
+                }
+
+                convertUsersToListCallback.onSuccess(userDataModels);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+    }
+
+    public static UserDataModel convertToUserDataModel(String Uid, convertUserCallback callback) {
+        final HashMap<String, String> credentials = new HashMap<>();
+        final HashMap<String, UserDataModel> userModels = new HashMap<>();
+
+        Log.d(TAG, "REFERENCE " + usersReference.child(Uid).toString());
 
         usersReference.child(Uid).addValueEventListener(new ValueEventListener() {
             @Override
@@ -78,25 +141,25 @@ public class UserDataModel {
                     Log.d(TAG, "onDataChange: KEY: " + user_details.getValue());
                     switch (user_details.getKey()) {
                         case "profileName":
-                            credentials.put("profileName",user_details.getValue(String.class));
+                            credentials.put("profileName", user_details.getValue(String.class));
                             break;
                         case "mail":
-                            credentials.put("mail",user_details.getValue(String.class));
+                            credentials.put("mail", user_details.getValue(String.class));
                             break;
                         case "description":
-                            credentials.put("description",user_details.getValue(String.class));
+                            credentials.put("description", user_details.getValue(String.class));
                             break;
                         case "phone":
-                            credentials.put("phone",user_details.getValue(String.class));
+                            credentials.put("phone", user_details.getValue(String.class));
                             break;
                         case "address":
-                            credentials.put("address",user_details.getValue(String.class));
+                            credentials.put("address", user_details.getValue(String.class));
                             break;
 
                     }
                 }
 
-                UserDataModel userDataModel = new UserDataModel(Uid,credentials.get("mail"));
+                UserDataModel userDataModel = new UserDataModel(Uid, credentials.get("mail"));
                 userDataModel.profileName = credentials.get("profileName");
                 userDataModel.description = credentials.get("description");
                 userDataModel.phoneNumber = credentials.get("phone");
@@ -104,6 +167,7 @@ public class UserDataModel {
 
                 callback.onSuccess(userDataModel);
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 callback.onError("Couldn't convert the data");
@@ -124,8 +188,6 @@ public class UserDataModel {
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", description='" + description + '\'' +
                 ", ownedGames=" + ownedGames +
-                ", sessionsPlayed=" + sessionsPlayed +
-                ", plannedSessions=" + plannedSessions +
                 ", friendsList=" + friendsList +
                 '}';
     }

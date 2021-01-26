@@ -1,38 +1,26 @@
-package com.nvi0.pb.meetandplay.Fragments.messsenger;
+package com.nvi0.pb.meetandplay.Fragments.game_sessions;
 
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentStatePagerAdapter;
-import androidx.viewpager.widget.ViewPager;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.TextView;
 
-import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+import com.nvi0.pb.meetandplay.Fragments.game_list.GamesListFragment;
 import com.nvi0.pb.meetandplay.R;
-import com.nvi0.pb.meetandplay.Utils.BoardGamesAtlas;
-
-import java.util.ArrayList;
-import java.util.List;
 
 
-public class MessengerFragment extends Fragment {
+public class MeetAndPlayFragment extends Fragment {
 
     private static final String TAG = "MessengerFragment";
     DatabaseReference messagesDbReference = FirebaseDatabase.getInstance().getReference("message");
@@ -62,7 +50,7 @@ public class MessengerFragment extends Fragment {
                 if (position == 0)
                     tab.setText("Friends");
                 else
-                    tab.setText("Chats");
+                    tab.setText("List");
                 }).attach();
 
     }
@@ -78,9 +66,9 @@ public class MessengerFragment extends Fragment {
         public Fragment createFragment(int position) {
             Fragment fragment = null;
             if (position == 0)
-                fragment = new MessengerFriendsFragment();
+                fragment = new AppUsersListFragment();
             else
-                fragment = new MessengerConvosFragment();
+                fragment = new GamesListFragment();
 
             return fragment;
         }

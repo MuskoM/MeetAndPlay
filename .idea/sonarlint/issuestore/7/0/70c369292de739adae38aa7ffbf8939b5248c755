@@ -1,31 +1,15 @@
 
-T
-java:S11287"7Remove this unused import 'java.text.SimpleDateFormat'.(ú¡ÙÛ8‰Óß¶ò.
-F
-java:S1604Ü"(Make this anonymous inner class a lambda(ïØ¥8¡§¸¶ò.
-n
-java:S1128""LRemove this unused import 'com.google.android.gms.tasks.OnCompleteListener'.(Çğ¸Òÿÿÿÿÿ8Â±º¶ò.
 J
-java:S1604{"(Make this anonymous inner class a lambda(ò„°¬şÿÿÿÿ8Å³Ò´ò.
-K
-java:S1604"(Make this anonymous inner class a lambda(‡¾Éœúÿÿÿÿ8ÿ…€µò.
-P
-java:S1128"4Remove this unused import 'android.graphics.Bitmap'.(¾ì8âÛš·ò.
+java:S1604t"(Make this anonymous inner class a lambda(ò„°¬şÿÿÿÿ8Å³Ò´ò.
 E
-java:S1604á"(Make this anonymous inner class a lambda(‹Ô”H8‚È¼¶ò.
-Ÿ
-java:S1186À"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ô°¤¦8Å³Ò´ò.
+java:S1604à"(Make this anonymous inner class a lambda(‹Ô”H8‚È¼¶ò.
+F
+java:S1604Û"(Make this anonymous inner class a lambda(ïØ¥8¡§¸¶ò.
 E
-java:S1185^"(Remove this method to simply inherit it.(ßìê¯8Å³Ò´ò.
-e
-java:S1128."HRemove this unused import 'com.google.firebase.storage.StorageMetadata'.(¢‹¨¯8‰Óß¶ò.
-[
-java:S1128%">Remove this unused import 'com.google.android.gms.tasks.Task'.(¦âÏô8Â±º¶ò.
-]
-java:S1128";Remove this unused import 'android.graphics.BitmapFactory'.(âàºÍûÿÿÿÿ8ÚŠ‰·ò.
-?	java:S131¨""Add a default case to this switch.(Ô‚Ş¶8Å³Ò´ò.
+java:S1185V"(Remove this method to simply inherit it.(ßìê¯8Å³Ò´ò.
 o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.( ñÛ
-H
-java:S11288"+Remove this unused import 'java.util.Date'.(¸…¼ü8‰Óß¶ò.
-m
-java:S11281"PRemove this unused import 'com.nvi0.pb.meetandplay.Fragments.GamesListFragment'.(Ğôç…8ñ¸“µò.
+?	java:S131¡""Add a default case to this switch.(Ô‚Ş¶8Å³Ò´ò.
+Ÿ
+java:S1186¹"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ô°¤¦8Å³Ò´ò.
+K
+java:S1604†"(Make this anonymous inner class a lambda(‡¾Éœúÿÿÿÿ8ÿ…€µò.

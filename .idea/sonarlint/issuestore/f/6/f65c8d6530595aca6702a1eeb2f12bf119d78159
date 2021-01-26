@@ -1,20 +1,20 @@
 
+r	java:S117*"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ãöùøÿÿÿÿ8ñËµ²ò.
+R
+java:S1128"0Remove this unused import 'org.json.JSONObject'.(œÖ´üşÿÿÿÿ8¯±ïÚò.
+C	java:S131O""Add a default case to this switch.(²¾Ğıÿÿÿÿ8™ìÖÜò.
+r	java:S114>"QRename this interface name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(¬¨Àÿÿÿÿÿ8¶Ë©İò.
+i
+java:S1192P"LDefine a constant instead of duplicating this literal "profileName" 3 times.(¯Ú¬·8‰†µİò.
+U
+java:S1128"3Remove this unused import 'org.json.JSONException'.(¹Ó·úÿÿÿÿ8áÔòÚò.
+e
+java:S1192\"HDefine a constant instead of duplicating this literal "address" 3 times.(¯°Ú¬8…¥¸İò.
+u	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¦Ì•8«Èá±ò.
+i
+java:S1192V"LDefine a constant instead of duplicating this literal "description" 3 times.(ŞŸ½8³õµİò.
 m	java:S117C"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(±ç¡¸8¯±ïÚò.
 h
 java:S1192Y"FDefine a constant instead of duplicating this literal "phone" 3 times.(Åé½úÿÿÿÿ8ôˆ¸İò.
-r	java:S114>"QRename this interface name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(¬¨Àÿÿÿÿÿ8¶Ë©İò.
-i
-java:S1192V"LDefine a constant instead of duplicating this literal "description" 3 times.(ŞŸ½8³õµİò.
-e
-java:S1192\"HDefine a constant instead of duplicating this literal "address" 3 times.(¯°Ú¬8…¥¸İò.
-C	java:S131O""Add a default case to this switch.(²¾Ğıÿÿÿÿ8™ìÖÜò.
-R
-java:S1128"0Remove this unused import 'org.json.JSONObject'.(œÖ´üşÿÿÿÿ8¯±ïÚò.
 O
 java:S1128"2Remove this unused import 'io.realm.mongodb.User'.(âÛ»ñ8ÿÜûÚò.
-u	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¦Ì•8«Èá±ò.
-U
-java:S1128"3Remove this unused import 'org.json.JSONException'.(¹Ó·úÿÿÿÿ8áÔòÚò.
-r	java:S117*"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ãöùøÿÿÿÿ8ñËµ²ò.
-i
-java:S1192P"LDefine a constant instead of duplicating this literal "profileName" 3 times.(¯Ú¬·8‰†µİò.

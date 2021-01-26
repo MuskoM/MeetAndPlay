@@ -24,6 +24,7 @@ import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
+import com.bumptech.glide.signature.ObjectKey;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -46,6 +47,7 @@ import java.util.List;
 
 public class UserProfileFragment extends Fragment implements ValueEventListener {
 
+    private static final String TAG = "UserProfileFragment";
     //Firebase
     private FirebaseUser userAuth = FirebaseAuth.getInstance().getCurrentUser();
     private DatabaseReference userReference = FirebaseDatabase.getInstance().getReference("users").child(userAuth.getUid());
@@ -76,8 +78,6 @@ public class UserProfileFragment extends Fragment implements ValueEventListener 
         userPhoneTextView = view.findViewById(R.id.profile_details_phone_number);
         userDescriptionTextView = view.findViewById(R.id.profile_description);
 
-        refreshAvatar();
-
         favouriteGamesRecyclerView = view.findViewById(R.id.profile_fragment_favourite_games);
         GamesMenager.getFavouriteGames(new GamesMenager.GamesListener() {
             @Override
@@ -94,29 +94,12 @@ public class UserProfileFragment extends Fragment implements ValueEventListener 
 
         userReference.addValueEventListener(this);
 
+        GlideApp.with(this).load(storageAvatarReference)
+                .signature(new ObjectKey(String.valueOf(System.currentTimeMillis())))
+                .into(avatar);
+
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        refreshAvatar();
-    }
-
-    private void refreshAvatar() {
-        GlideApp.with(this).load(storageAvatarReference).error(R.drawable.ic_launcher_background).listener(new RequestListener<Drawable>() {
-            @Override
-            public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
-                Log.e("GLIDE ERROR","Error", e);
-                return false;
-            }
-
-            @Override
-            public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
-                Log.e("GLIDE ERROR","Ready");
-                return false;
-            }
-        }).into(avatar);
-    }
 
 
     @Override

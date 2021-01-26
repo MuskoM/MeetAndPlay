@@ -1,11 +1,16 @@
 
-o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.( ñÛ
-E
-java:S1604J"(Make this anonymous inner class a lambda(É×­Ü8ƒğ³ò.
+T
+java:S1128"2Remove this unused import 'android.widget.Button'.(²òıÿÿÿÿ8Œ•Üó.
+|
+java:S1128&"_Remove this unused import 'com.nvi0.pb.meetandplay.Fragments.game_list.FavouriteGamesFragment'.(Şáî·8ÀøİÛó.
+Š
+java:S3252["hUse static access with "com.google.android.material.snackbar.BaseTransientBottomBar" for "LENGTH_SHORT".(íªÙşÿÿÿÿÿ8ÀÌÛó.
+?	java:S131""Add a default case to this switch.(Ô‚Ş¶8ş›¦µò.
 Ÿ
-java:S1186œ"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ô°¤¦8Ó·¥µò.
-?	java:S131‚""Add a default case to this switch.(Ô‚Ş¶8ş›¦µò.
-
-java:S11863"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(áF8÷–î²ñ.
+java:S1186¨"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ô°¤¦8Ó·¥µò.
+D	java:S131µ""Add a default case to this switch.(øå´¡ÿÿÿÿÿ8şœÜó.
+n
+java:S1301µ"KReplace this "switch" statement by "if" statements to increase readability.(øå´¡ÿÿÿÿÿ8şœÜó.
 E
-java:S1185o"(Remove this method to simply inherit it.(ßìê¯8ÊÏí°ò.
+java:S1185{"(Remove this method to simply inherit it.(ßìê¯8ÊÏí°ò.
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.( ñÛ

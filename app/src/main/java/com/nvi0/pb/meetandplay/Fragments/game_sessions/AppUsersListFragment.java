@@ -1,6 +1,8 @@
-package com.nvi0.pb.meetandplay.Fragments.messsenger;
+package com.nvi0.pb.meetandplay.Fragments.game_sessions;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
@@ -18,36 +20,35 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 import com.nvi0.pb.meetandplay.DataModels.UserDataModel;
 import com.nvi0.pb.meetandplay.R;
-import com.nvi0.pb.meetandplay.Utils.FriendsMenager;
+import com.nvi0.pb.meetandplay.Utils.SessionMenager;
 import com.nvi0.pb.meetandplay.Utils.GlideApp;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.zip.Inflater;
-
-import io.realm.mongodb.User;
 
 
-public class MessengerFriendsFragment extends Fragment {
+public class AppUsersListFragment extends Fragment {
 
-    private static final String TAG = "MessengerFriendsFragmen";
+    private static final String TAG = "AppUsersListFragment";
     MessengerFriendsRecycleViewAdapter messengerFriendsRecycleViewAdapter;
     List<UserDataModel> userDataModelList = new ArrayList<>();
 
     //Elements
     RecyclerView messengerFriendsRecyclerView;
 
-    public MessengerFriendsFragment() {
+    public AppUsersListFragment() {
         setHasOptionsMenu(true);
     }
 
@@ -61,7 +62,7 @@ public class MessengerFriendsFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         messengerFriendsRecyclerView = view.findViewById(R.id.messenger_friends_recycler_view);
 
-        FriendsMenager.getUserFriends(new FriendsMenager.onUserFriendsFetched() {
+        SessionMenager.getUsersOnApp(new SessionMenager.onUserFriendsFetched() {
             @Override
             public void onSuccess(List<UserDataModel> stringIds) {
                 Log.d(TAG, "onSuccess: " + stringIds.toString());
@@ -102,6 +103,7 @@ public class MessengerFriendsFragment extends Fragment {
 
             mContext = context;
             friendsUserDataModelList = friendsList;
+            Log.d(TAG, "MessengerFriendsRecycleViewAdapter: firendsUserDataModelList " + friendsUserDataModelList.toString());
 
         }
 
@@ -120,8 +122,11 @@ public class MessengerFriendsFragment extends Fragment {
 
             
             holder.userName.setText(friendsUserDataModelList.get(position).getProfileName());
+
+            StorageReference storageAvatarReference = FirebaseStorage.getInstance()
+                    .getReference("users").child(friendsUserDataModelList.get(position).getUserId()).child("avatar.jpg");
             GlideApp.with(mContext)
-                    .load("https://www.google.com")
+                    .load(storageAvatarReference)
                     .error(R.drawable.ic_baseline_exit)
                     .listener(new RequestListener<Drawable>() {
                         @Override
@@ -169,7 +174,20 @@ public class MessengerFriendsFragment extends Fragment {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
         if (R.id.profile_menu_edit == item.getItemId()){
-            FriendsMenager.addUserFriend("mateusz");
+
+            AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(getContext());
+            final EditText input = new EditText(getContext());
+            dialogBuilder.setTitle("Input search string").setView(input).setView(input);
+
+            dialogBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    SessionMenager.addGameSession(input.getText().toString());
+                }
+            });
+            dialogBuilder.show();
+            return true;
+
         }
 
         return super.onOptionsItemSelected(item);
